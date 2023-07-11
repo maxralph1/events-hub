@@ -2,16 +2,27 @@
 
 namespace App\Http\Controllers\Api\V1\Admin;
 
-use App\Models\EventHall;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\EventHallResource;
 use App\Http\Requests\StoreEventHallRequest;
 use App\Http\Requests\UpdateEventHallRequest;
+use App\Http\Resources\EventHallResource;
+use App\Models\EventHall;
 
+/**
+ * @group Admin endpoints
+ */
 class EventHallController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * GET Event Halls
+     *
+     * Returns paginated list of event halls.
+     * 
+     * @authenticated
+     *
+     * @queryParam page integer Page number. Example: 1
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event Hall","description":"This is the first event hall", ...}, ...}
      */
     public function index()
     {
@@ -23,7 +34,14 @@ class EventHallController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * POST Event Hall
+     *
+     * Creates a new event hall record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event Hall","description":"This is the first event hall", ...}, ...}
+     * @response 422 {"message":"The name field is required.","errors":{"name":["The name field is required."]}, ...}
      */
     public function store(StoreEventHallRequest $request)
     {
@@ -33,7 +51,14 @@ class EventHallController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * GET Event Hall
+     *
+     * Returns a event hall record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event Hall","description":"This is the first event hall", ...}, ...}
+     * @response 404 {"message":"Record not found."}
      */
     public function show(EventHall $eventHall)
     {
@@ -41,7 +66,13 @@ class EventHallController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * PUT Event Hall
+     *
+     * Updates event hall record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event Hall","description":"This is the first event hall", ...}, ...}
      */
     public function update(UpdateEventHallRequest $request, EventHall $eventHall)
     {
@@ -51,7 +82,13 @@ class EventHallController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * DELETE Event Hall
+     *
+     * Deletes event hall record.
+     * 
+     * @authenticated
+     *
+     * @response 204 {}
      */
     public function destroy(EventHall $eventHall)
     {

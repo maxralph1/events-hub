@@ -1,10 +1,11 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\V1\Auth;
+// use Illuminate\Http\Request;
 use App\Http\Controllers\Api\V1\Admin;
+use App\Http\Controllers\Api\V1\Auth;
+use App\Http\Controllers\Api\V1\Public;
 use App\Http\Controllers\Api\V1\User;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------

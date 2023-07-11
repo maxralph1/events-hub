@@ -2,16 +2,25 @@
 
 namespace App\Http\Controllers\Api\V1\Auth;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+// use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\PasswordResetRequest;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Hash;
 
+/**
+ * @group Auth endpoints
+ */
 class PasswordResetController extends Controller
 {
     /**
-     * Handle the incoming request.
+     * PUT Reset Password
+     *
+     * Reset Password of an existing user.
+     * 
+     * @authenticated
+     *
+     * @response {"success":"Your password has been updated."}
      */
     public function __invoke(PasswordResetRequest $request)
     {
@@ -22,7 +31,7 @@ class PasswordResetController extends Controller
         ]);
 
         return response()->json([
-            'message' => 'Your password has been updated.',
+            'success' => 'Your password has been updated.',
         ], Response::HTTP_ACCEPTED);
     }
 }

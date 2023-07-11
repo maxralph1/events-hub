@@ -2,16 +2,27 @@
 
 namespace App\Http\Controllers\Api\V1\User;
 
-use App\Models\Feedback;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\FeedbackResource;
 use App\Http\Requests\StoreFeedbackRequest;
-use App\Http\Requests\UpdateFeedbackRequest;
+// use App\Http\Requests\UpdateFeedbackRequest;
+use App\Http\Resources\FeedbackResource;
+use App\Models\Feedback;
 
+/**
+ * @group User endpoints
+ */
 class FeedbackController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * GET Feedbacks
+     *
+     * Returns paginated list of feedbacks.
+     * 
+     * @authenticated
+     *
+     * @queryParam page integer Page number. Example: 1
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","added_by":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow"},"subject":"Feedback Subject","message":"This is the feedback message.", ...}, ...}
      */
     public function index()
     {
@@ -23,7 +34,14 @@ class FeedbackController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * POST Feedback
+     *
+     * Creates a new feedback record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","added_by":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow"},"subject":"Feedback Subject","message":"This is the feedback message.", ...}, ...}
+     * @response 422 {"message":"The subject field is required.","errors":{"subject":["The subject field is required."]}, ...}
      */
     public function store(StoreFeedbackRequest $request)
     {
@@ -33,7 +51,14 @@ class FeedbackController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * GET Feedback
+     *
+     * Returns a feedback record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","added_by":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow"},"subject":"Feedback Subject","message":"This is the feedback message.", ...}, ...}
+     * @response 404 {"message":"Record not found."}
      */
     public function show(Feedback $feedback)
     {
@@ -45,7 +70,13 @@ class FeedbackController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * DELETE Feedback
+     *
+     * Deletes feedback record.
+     * 
+     * @authenticated
+     *
+     * @response 204 {}
      */
     public function destroy(Feedback $feedback)
     {

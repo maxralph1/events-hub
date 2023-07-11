@@ -2,16 +2,27 @@
 
 namespace App\Http\Controllers\Api\V1\Admin;
 
-use App\Models\TicketType;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\TicketTypeResource;
 use App\Http\Requests\StoreTicketTypeRequest;
 use App\Http\Requests\UpdateTicketTypeRequest;
+use App\Http\Resources\TicketTypeResource;
+use App\Models\TicketType;
 
+/**
+ * @group Admin endpoints
+ */
 class TicketTypeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * GET Ticket Types
+     *
+     * Returns paginated list of ticket types.
+     * 
+     * @authenticated
+     *
+     * @queryParam page integer Page number. Example: 1
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"title":"First event","slug":"first-event-sample","description":"This is the first event","available_tickets":200,"price":200,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"}, ...}, ...}
      */
     public function index()
     {
@@ -23,7 +34,14 @@ class TicketTypeController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * POST Ticket Type
+     *
+     * Creates a new ticket type record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"title":"First event","slug":"first-event-sample","description":"This is the first event","available_tickets":200,"price":200,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"}, ...}, ...}
+     * @response 422 {"message":"The title field is required.","errors":{"title":["The title field is required."]}, ...}
      */
     public function store(StoreTicketTypeRequest $request)
     {
@@ -33,7 +51,14 @@ class TicketTypeController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * GET Ticket Type
+     *
+     * Returns a ticket type record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"title":"First event","slug":"first-event-sample","description":"This is the first event","available_tickets":200,"price":200,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"}, ...}, ...}
+     * @response 404 {"message":"Record not found."}
      */
     public function show(TicketType $ticketType)
     {
@@ -41,7 +66,13 @@ class TicketTypeController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * PUT Ticket type
+     *
+     * Updates ticket type record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"title":"First event","slug":"first-event-sample","description":"This is the first event","available_tickets":200,"price":200,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"}, ...}, ...}
      */
     public function update(UpdateTicketTypeRequest $request, TicketType $ticketType)
     {
@@ -51,7 +82,13 @@ class TicketTypeController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * DELETE Ticket Type
+     *
+     * Deletes ticket type record.
+     * 
+     * @authenticated
+     *
+     * @response 204 {}
      */
     public function destroy(TicketType $ticketType)
     {

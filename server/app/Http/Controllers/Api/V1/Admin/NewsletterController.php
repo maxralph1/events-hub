@@ -2,16 +2,27 @@
 
 namespace App\Http\Controllers\Api\V1\Admin;
 
-use App\Models\Newsletter;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\NewsletterResource;
 use App\Http\Requests\StoreNewsletterRequest;
 use App\Http\Requests\UpdateNewsletterRequest;
+use App\Http\Resources\NewsletterResource;
+use App\Models\Newsletter;
 
+/**
+ * @group Admin endpoints
+ */
 class NewsletterController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * GET Newsletters
+     *
+     * Returns paginated list of newsletters.
+     * 
+     * @authenticated
+     *
+     * @queryParam page integer Page number. Example: 1
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","email":"john@snow.com", ...}, ...}
      */
     public function index()
     {
@@ -23,7 +34,14 @@ class NewsletterController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * POST Newsletter
+     *
+     * Creates a new newsletter record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","email":"john@snow.com", ...}, ...}
+     * @response 422 {"message":"The name field is required.","errors":{"name":["The name field is required."]}, ...}
      */
     public function store(StoreNewsletterRequest $request)
     {
@@ -33,7 +51,14 @@ class NewsletterController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * GET Newsletter
+     *
+     * Returns a newsletter record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","email":"john@snow.com", ...}, ...}
+     * @response 404 {"message":"Record not found."}
      */
     public function show(Newsletter $newsletter)
     {
@@ -41,7 +66,13 @@ class NewsletterController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * PUT Newsletter
+     *
+     * Updates newsletter record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","email":"john@snow.com", ...}, ...}
      */
     public function update(UpdateNewsletterRequest $request, Newsletter $newsletter)
     {
@@ -51,7 +82,13 @@ class NewsletterController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * DELETE Newsletter
+     *
+     * Deletes newsletter record.
+     * 
+     * @authenticated
+     *
+     * @response 204 {}
      */
     public function destroy(Newsletter $newsletter)
     {

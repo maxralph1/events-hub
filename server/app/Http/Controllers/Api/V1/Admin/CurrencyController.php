@@ -2,16 +2,27 @@
 
 namespace App\Http\Controllers\Api\V1\Admin;
 
-use App\Models\Currency;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CurrencyResource;
 use App\Http\Requests\StoreCurrencyRequest;
 use App\Http\Requests\UpdateCurrencyRequest;
+use App\Http\Resources\CurrencyResource;
+use App\Models\Currency;
 
+/**
+ * @group Admin endpoints
+ */
 class CurrencyController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * GET Currencies
+     *
+     * Returns paginated list of currencies.
+     * 
+     * @authenticated
+     *
+     * @queryParam page integer Page number. Example: 1
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"First currency","description":"This is the first currency", ...}, ...}
      */
     public function index()
     {
@@ -23,7 +34,14 @@ class CurrencyController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * POST Currency
+     *
+     * Creates a new currency record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"First currency","description":"This is the first currency", ...}, ...}
+     * @response 422 {"message":"The title field is required.","errors":{"title":["The title field is required."]}, ...}
      */
     public function store(StoreCurrencyRequest $request)
     {
@@ -33,7 +51,14 @@ class CurrencyController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * GET Currency
+     *
+     * Returns a currency record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"First currency","description":"This is the first currency", ...}, ...}
+     * @response 404 {"message":"Record not found."}
      */
     public function show(Currency $currency)
     {
@@ -41,7 +66,13 @@ class CurrencyController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * PUT Currency
+     *
+     * Updates currency record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"First currency","description":"This is the first currency", ...}, ...}
      */
     public function update(UpdateCurrencyRequest $request, Currency $currency)
     {
@@ -51,7 +82,13 @@ class CurrencyController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * DELETE Currency
+     *
+     * Deletes currency record.
+     * 
+     * @authenticated
+     *
+     * @response 204 {}
      */
     public function destroy(Currency $currency)
     {

@@ -21,5 +21,7 @@ class TicketObserver
                 Str::uuid()->getHex() .
                 now()->format('YmdHis')
         )->slug();
+
+        // $ticket->currency_id = $ticket->ticket_type->currency->id;
     }
 }

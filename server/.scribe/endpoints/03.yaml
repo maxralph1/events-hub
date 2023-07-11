@@ -1,0 +1,572 @@
+name: 'User endpoints'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/user/events
+    metadata:
+      groupName: 'User endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'GET Events'
+      description: 'Returns paginated list of events.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      page:
+        name: page
+        description: 'Page number.'
+        required: false
+        example: 1
+        type: integer
+        custom: []
+    cleanQueryParameters:
+      page: 1
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","event_hall":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event Hall","description":"This is the first event hall."},"host":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Host"},"title":"First Event","slug":"first-event","description":"This is the first event","start_date":"2023-01-23","start_time":"01:23","end_date":"2023-01-23","end_time":"01:23","age_limit":"18", ...}, ...}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/user/events/{id}'
+    metadata:
+      groupName: 'User endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'GET Event'
+      description: 'Returns a event record.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the event.'
+        required: true
+        example: 01h3rdp156apkxnycafx138fy1
+        type: string
+        custom: []
+    cleanUrlParameters:
+      id: 01h3rdp156apkxnycafx138fy1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","event_hall":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event Hall","description":"This is the first event hall."},"host":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Host"},"title":"First Event","slug":"first-event","description":"This is the first event","start_date":"2023-01-23","start_time":"01:23","end_date":"2023-01-23","end_time":"01:23","age_limit":"18", ...}, ...}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"message":"Record not found."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/user/events/{event_slug}/tickets'
+    metadata:
+      groupName: 'User endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'GET Tickets by Event'
+      description: 'Retrieves tickets by event record.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      event_slug:
+        name: event_slug
+        description: 'The slug of the event.'
+        required: true
+        example: 01h3rdp156apkxnycafx138fy1
+        type: string
+        custom: []
+    cleanUrlParameters:
+      event_slug: 01h3rdp156apkxnycafx138fy1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15atksjr11hrck0d20230123","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"ticket_type":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Ticket Type","description":"This is the first ticket type"},"added_by":"01h3hkhxrh15atksjr11hrck0d","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"},"payment_confirmed":0,"payment_confirmed_by":"01h3hkhxrh15atksjr11hrck0d", ...}, ...}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/user/tickets
+    metadata:
+      groupName: 'User endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'GET Tickets'
+      description: 'Returns paginated list of tickets.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      page:
+        name: page
+        description: 'Page number.'
+        required: false
+        example: 1
+        type: integer
+        custom: []
+    cleanQueryParameters:
+      page: 1
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15atksjr11hrck0d20230123","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"ticket_type":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Ticket Type","description":"This is the first ticket type"},"added_by":"01h3hkhxrh15atksjr11hrck0d","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"},"payment_confirmed":0,"payment_confirmed_by":"01h3hkhxrh15atksjr11hrck0d", ...}, ...}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/user/tickets
+    metadata:
+      groupName: 'User endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'POST Ticket'
+      description: 'Creates a new ticket record.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      event_id:
+        name: event_id
+        description: ''
+        required: true
+        example: a
+        type: string
+        custom: []
+      ticket_type_id:
+        name: ticket_type_id
+        description: ''
+        required: true
+        example: quam
+        type: string
+        custom: []
+      user_id:
+        name: user_id
+        description: ''
+        required: true
+        example: ducimus
+        type: string
+        custom: []
+      amount_paid:
+        name: amount_paid
+        description: ''
+        required: true
+        example: 27.3887
+        type: number
+        custom: []
+      currency_id:
+        name: currency_id
+        description: ''
+        required: true
+        example: excepturi
+        type: string
+        custom: []
+      payment_confirmed:
+        name: payment_confirmed
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        custom: []
+    cleanBodyParameters:
+      event_id: a
+      ticket_type_id: quam
+      user_id: ducimus
+      amount_paid: 27.3887
+      currency_id: excepturi
+      payment_confirmed: true
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15atksjr11hrck0d20230123","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"ticket_type":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Ticket Type","description":"This is the first ticket type"},"added_by":"01h3hkhxrh15atksjr11hrck0d","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"},"payment_confirmed":0,"payment_confirmed_by":"01h3hkhxrh15atksjr11hrck0d", ...}, ...}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"message":"The added_by field is required.","errors":{"added_by":["The added_by field is required."]}, ...}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/user/tickets/{id}'
+    metadata:
+      groupName: 'User endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'GET Ticket'
+      description: 'Returns a ticket record.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the ticket.'
+        required: true
+        example: 01h3rdp1cem74kxrvdgm08208g
+        type: string
+        custom: []
+    cleanUrlParameters:
+      id: 01h3rdp1cem74kxrvdgm08208g
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15atksjr11hrck0d20230123","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"ticket_type":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Ticket Type","description":"This is the first ticket type"},"added_by":"01h3hkhxrh15atksjr11hrck0d","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"},"payment_confirmed":0,"payment_confirmed_by":"01h3hkhxrh15atksjr11hrck0d", ...}, ...}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"message":"Record not found."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/user/tickets/{id}'
+    metadata:
+      groupName: 'User endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'DELETE Ticket'
+      description: 'Deletes ticket record.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the ticket.'
+        required: true
+        example: 01h3rdp1cem74kxrvdgm08208g
+        type: string
+        custom: []
+    cleanUrlParameters:
+      id: 01h3rdp1cem74kxrvdgm08208g
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/user/feedbacks
+    metadata:
+      groupName: 'User endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'GET Feedbacks'
+      description: 'Returns paginated list of feedbacks.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      page:
+        name: page
+        description: 'Page number.'
+        required: false
+        example: 1
+        type: integer
+        custom: []
+    cleanQueryParameters:
+      page: 1
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","added_by":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow"},"subject":"Feedback Subject","message":"This is the feedback message.", ...}, ...}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/user/feedbacks
+    metadata:
+      groupName: 'User endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'POST Feedback'
+      description: 'Creates a new feedback record.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_id:
+        name: user_id
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      subject:
+        name: subject
+        description: 'Must not be greater than 150 characters.'
+        required: true
+        example: ifhtgbduxgmaurkdbdbnwiyxd
+        type: string
+        custom: []
+      message:
+        name: message
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: cfxzv
+        type: string
+        custom: []
+    cleanBodyParameters:
+      subject: ifhtgbduxgmaurkdbdbnwiyxd
+      message: cfxzv
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","added_by":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow"},"subject":"Feedback Subject","message":"This is the feedback message.", ...}, ...}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"message":"The subject field is required.","errors":{"subject":["The subject field is required."]}, ...}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/user/feedbacks/{id}'
+    metadata:
+      groupName: 'User endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'GET Feedback'
+      description: 'Returns a feedback record.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the feedback.'
+        required: true
+        example: 01h3rdp1hab6xx7st0hqcshx6j
+        type: string
+        custom: []
+    cleanUrlParameters:
+      id: 01h3rdp1hab6xx7st0hqcshx6j
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","added_by":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow"},"subject":"Feedback Subject","message":"This is the feedback message.", ...}, ...}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"message":"Record not found."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/user/feedbacks/{id}'
+    metadata:
+      groupName: 'User endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'DELETE Feedback'
+      description: 'Deletes feedback record.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the feedback.'
+        required: true
+        example: 01h3rdp1hab6xx7st0hqcshx6j
+        type: string
+        custom: []
+    cleanUrlParameters:
+      id: 01h3rdp1hab6xx7st0hqcshx6j
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

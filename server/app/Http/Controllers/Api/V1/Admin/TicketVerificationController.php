@@ -2,16 +2,27 @@
 
 namespace App\Http\Controllers\Api\V1\Admin;
 
-use App\Models\TicketVerification;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\TicketVerificationResource;
 use App\Http\Requests\StoreTicketVerificationRequest;
 use App\Http\Requests\UpdateTicketVerificationRequest;
+use App\Http\Resources\TicketVerificationResource;
+use App\Models\TicketVerification;
 
+/**
+ * @group Admin endpoints
+ */
 class TicketVerificationController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * GET Ticket Verifications
+     *
+     * Returns paginated list of ticket verifications.
+     * 
+     * @authenticated
+     *
+     * @queryParam page integer Page number. Example: 1
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15SAMPLE","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"USD"}},"user":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","username":"user1"},"payment_confirmed":0, ...}, ...}
      */
     public function index()
     {
@@ -23,7 +34,13 @@ class TicketVerificationController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * POST Ticket Verification
+     *
+     * Creates a new ticket verification record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15SAMPLE","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"USD"}},"user":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","username":"user1"},"payment_confirmed":0, ...}, ...}
      */
     public function store(StoreTicketVerificationRequest $request)
     {
@@ -33,7 +50,14 @@ class TicketVerificationController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * GET Ticket Verification
+     *
+     * Returns a ticket verification record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15SAMPLE","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"USD"}},"user":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","username":"user1"},"payment_confirmed":0, ...}, ...}
+     * @response 404 {"message":"Record not found."}
      */
     public function show(TicketVerification $ticketVerification)
     {
@@ -41,7 +65,13 @@ class TicketVerificationController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * PUT Ticket Verification
+     *
+     * Updates ticket verification record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15SAMPLE","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"USD"}},"user":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","username":"user1"},"payment_confirmed":0, ...}, ...}
      */
     public function update(UpdateTicketVerificationRequest $request, TicketVerification $ticketVerification)
     {
@@ -51,7 +81,13 @@ class TicketVerificationController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * DELETE Ticket Verification
+     *
+     * Deletes ticket verification record.
+     * 
+     * @authenticated
+     *
+     * @response 204 {}
      */
     public function destroy(TicketVerification $ticketVerification)
     {

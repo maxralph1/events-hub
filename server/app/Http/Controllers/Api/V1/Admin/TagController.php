@@ -2,16 +2,27 @@
 
 namespace App\Http\Controllers\Api\V1\Admin;
 
-use App\Models\Tag;
-use App\Http\Resources\TagResource;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTagRequest;
 use App\Http\Requests\UpdateTagRequest;
+use App\Http\Resources\TagResource;
+use App\Models\Tag;
 
+/**
+ * @group Admin endpoints
+ */
 class TagController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * GET Tags
+     *
+     * Returns paginated list of tags.
+     * 
+     * @authenticated
+     *
+     * @queryParam page integer Page number. Example: 1
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"Karaoke","description":"This is the regular karaoke.", ...}, ...}
      */
     public function index()
     {
@@ -23,7 +34,14 @@ class TagController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * POST Tag
+     *
+     * Creates a new tag record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"Karaoke","description":"This is the regular karaoke.", ...}, ...}
+     * @response 422 {"message":"The title field is required.","errors":{"title":["The title field is required."]}, ...}
      */
     public function store(StoreTagRequest $request)
     {
@@ -33,7 +51,14 @@ class TagController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * GET Tag
+     *
+     * Returns a tag record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"Karaoke","description":"This is the regular karaoke.", ...}, ...}
+     * @response 404 {"message":"Record not found."}
      */
     public function show(Tag $tag)
     {
@@ -41,7 +66,13 @@ class TagController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * PUT Tag
+     *
+     * Updates tag record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"Karaoke","description":"This is the regular karaoke.", ...}, ...}
      */
     public function update(UpdateTagRequest $request, Tag $tag)
     {
@@ -51,7 +82,13 @@ class TagController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * DELETE Tag
+     *
+     * Deletes tag record.
+     * 
+     * @authenticated
+     *
+     * @response 204 {}
      */
     public function destroy(Tag $tag)
     {

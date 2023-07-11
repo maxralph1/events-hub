@@ -1,0 +1,2698 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/v1/super-admin/countries:
+    get:
+      summary: 'GET Countries'
+      operationId: gETCountries
+      description: 'Returns paginated list of countries.'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Page number.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Page number.'
+            example: 1
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"Slovekia", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+    post:
+      summary: 'POST Country'
+      operationId: pOSTCountry
+      description: 'Creates a new country record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"Slovekia", ...}, ...}'
+        422:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"message":"The name field is required.","errors":{"name":["The name field is required."]}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 75 characters.'
+                  example: p
+              required:
+                - name
+  '/api/v1/super-admin/countries/{id}':
+    get:
+      summary: 'GET Country'
+      operationId: gETCountry
+      description: 'Returns a country record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"Slovekia", ...}, ...}'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Record not found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Record not found.'
+      tags:
+        - 'Admin endpoints'
+    put:
+      summary: 'PUT Country'
+      operationId: pUTCountry
+      description: 'Updates country record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"Slovekia", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: null
+    delete:
+      summary: 'DELETE Country'
+      operationId: dELETECountry
+      description: 'Deletes country record.'
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - 'Admin endpoints'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the country.'
+        example: 01h3rdp0xyr90h5vx4pn5hff2g
+        required: true
+        schema:
+          type: string
+  /api/v1/super-admin/currencies:
+    get:
+      summary: 'GET Currencies'
+      operationId: gETCurrencies
+      description: 'Returns paginated list of currencies.'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Page number.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Page number.'
+            example: 1
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"First currency","description":"This is the first currency", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+    post:
+      summary: 'POST Currency'
+      operationId: pOSTCurrency
+      description: 'Creates a new currency record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"First currency","description":"This is the first currency", ...}, ...}'
+        422:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"message":"The title field is required.","errors":{"title":["The title field is required."]}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 75 characters.'
+                  example: etbnjlooqydor
+                description:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'Id et quisquam eos occaecati eveniet.'
+              required:
+                - title
+                - description
+  '/api/v1/super-admin/currencies/{id}':
+    get:
+      summary: 'GET Currency'
+      operationId: gETCurrency
+      description: 'Returns a currency record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"First currency","description":"This is the first currency", ...}, ...}'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Record not found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Record not found.'
+      tags:
+        - 'Admin endpoints'
+    put:
+      summary: 'PUT Currency'
+      operationId: pUTCurrency
+      description: 'Updates currency record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"First currency","description":"This is the first currency", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ''
+                  example: null
+                description:
+                  type: string
+                  description: ''
+                  example: null
+    delete:
+      summary: 'DELETE Currency'
+      operationId: dELETECurrency
+      description: 'Deletes currency record.'
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - 'Admin endpoints'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the currency.'
+        example: 01h3rdp0zyv2tf6k4andngsc93
+        required: true
+        schema:
+          type: string
+  /api/v1/super-admin/events:
+    get:
+      summary: 'GET Events'
+      operationId: gETEvents
+      description: 'Returns paginated list of events.'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Page number.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Page number.'
+            example: 1
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","event_hall":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event Hall","description":"This is the first event hall."},"host":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Host"},"title":"First Event","slug":"first-event","description":"This is the first event","start_date":"2023-01-23","start_time":"01:23","end_date":"2023-01-23","end_time":"01:23","age_limit":"18", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+  '/api/v1/super-admin/events/{id}':
+    get:
+      summary: 'GET Event'
+      operationId: gETEvent
+      description: 'Returns a event record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","event_hall":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event Hall","description":"This is the first event hall."},"host":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Host"},"title":"First Event","slug":"first-event","description":"This is the first event","start_date":"2023-01-23","start_time":"01:23","end_date":"2023-01-23","end_time":"01:23","age_limit":"18", ...}, ...}'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Record not found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Record not found.'
+      tags:
+        - 'Admin endpoints'
+    put:
+      summary: 'PUT Event'
+      operationId: pUTEvent
+      description: 'Updates event record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","event_hall":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event Hall","description":"This is the first event hall."},"host":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Host"},"title":"First Event","slug":"first-event","description":"This is the first event","start_date":"2023-01-23","start_time":"01:23","end_date":"2023-01-23","end_time":"01:23","age_limit":"18", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: null
+                event_hall_id:
+                  type: string
+                  description: ''
+                  example: null
+                host_id:
+                  type: string
+                  description: ''
+                  example: null
+                title:
+                  type: string
+                  description: ''
+                  example: null
+                description:
+                  type: string
+                  description: ''
+                  example: null
+                start_date:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2023-07-07T11:15:06'
+                start_time:
+                  type: string
+                  description: ''
+                  example: null
+                end_date:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2023-07-07T11:15:06'
+                end_time:
+                  type: string
+                  description: ''
+                  example: null
+                age_limit:
+                  type: string
+                  description: ''
+                  example: null
+    delete:
+      summary: 'DELETE Event'
+      operationId: dELETEEvent
+      description: 'Deletes event record.'
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - 'Admin endpoints'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the event.'
+        example: 01h3rdp156apkxnycafx138fy1
+        required: true
+        schema:
+          type: string
+  /api/v1/super-admin/event-halls:
+    get:
+      summary: 'GET Event Halls'
+      operationId: gETEventHalls
+      description: 'Returns paginated list of event halls.'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Page number.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Page number.'
+            example: 1
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event Hall","description":"This is the first event hall", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+    post:
+      summary: 'POST Event Hall'
+      operationId: pOSTEventHall
+      description: 'Creates a new event hall record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event Hall","description":"This is the first event hall", ...}, ...}'
+        422:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"message":"The name field is required.","errors":{"name":["The name field is required."]}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 150 characters.'
+                  example: gskbhbojpejhzpaukenv
+                description:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - name
+  '/api/v1/super-admin/event-halls/{id}':
+    get:
+      summary: 'GET Event Hall'
+      operationId: gETEventHall
+      description: 'Returns a event hall record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event Hall","description":"This is the first event hall", ...}, ...}'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Record not found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Record not found.'
+      tags:
+        - 'Admin endpoints'
+    put:
+      summary: 'PUT Event Hall'
+      operationId: pUTEventHall
+      description: 'Updates event hall record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event Hall","description":"This is the first event hall", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: null
+                description:
+                  type: string
+                  description: ''
+                  example: null
+    delete:
+      summary: 'DELETE Event Hall'
+      operationId: dELETEEventHall
+      description: 'Deletes event hall record.'
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - 'Admin endpoints'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the event hall.'
+        example: 01h3rdp10z5hjx0pm45ng1gdea
+        required: true
+        schema:
+          type: string
+  /api/v1/super-admin/feedbacks:
+    get:
+      summary: 'GET Feedbacks'
+      operationId: gETFeedbacks
+      description: 'Returns paginated list of feedbacks.'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Page number.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Page number.'
+            example: 1
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","added_by":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow"},"subject":"Feedback Subject","message":"This is the feedback message.", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+    post:
+      summary: 'POST Feedback'
+      operationId: pOSTFeedback
+      description: 'Creates a new feedback record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","added_by":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow"},"subject":"Feedback Subject","message":"This is the feedback message.", ...}, ...}'
+        422:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"message":"The subject field is required.","errors":{"subject":["The subject field is required."]}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: null
+                subject:
+                  type: string
+                  description: 'Must not be greater than 150 characters.'
+                  example: vri
+                message:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: ppdwcmysivi
+              required:
+                - subject
+                - message
+  '/api/v1/super-admin/feedbacks/{id}':
+    get:
+      summary: 'GET Feedback'
+      operationId: gETFeedback
+      description: 'Returns a feedback record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","added_by":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow"},"subject":"Feedback Subject","message":"This is the feedback message.", ...}, ...}'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Record not found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Record not found.'
+      tags:
+        - 'Admin endpoints'
+    delete:
+      summary: 'DELETE Feedback'
+      operationId: dELETEFeedback
+      description: 'Deletes feedback record.'
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - 'Admin endpoints'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the feedback.'
+        example: 01h3rdp1hab6xx7st0hqcshx6j
+        required: true
+        schema:
+          type: string
+  /api/v1/super-admin/hosts:
+    get:
+      summary: 'GET Hosts'
+      operationId: gETHosts
+      description: 'Returns paginated list of hosts.'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Page number.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Page number.'
+            example: 1
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","description":"John Snow is the king of pop.", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+    post:
+      summary: 'POST Host'
+      operationId: pOSTHost
+      description: 'Creates a new host record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","description":"John Snow is the king of pop.", ...}, ...}'
+        422:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"message":"The name field is required.","errors":{"name":["The name field is required."]}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 150 characters.'
+                  example: wsgkpllfmfpxdj
+                description:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'Laudantium consequatur harum est porro reiciendis quidem.'
+              required:
+                - name
+  '/api/v1/super-admin/hosts/{id}':
+    get:
+      summary: 'GET Host'
+      operationId: gETHost
+      description: 'Returns a host record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","description":"John Snow is the king of pop.", ...}, ...}'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Record not found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Record not found.'
+      tags:
+        - 'Admin endpoints'
+    put:
+      summary: 'PUT Host'
+      operationId: pUTHost
+      description: 'Updates host record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","description":"John Snow is the king of pop.", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: null
+                description:
+                  type: string
+                  description: ''
+                  example: null
+    delete:
+      summary: 'DELETE Host'
+      operationId: dELETEHost
+      description: 'Deletes host record.'
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - 'Admin endpoints'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the host.'
+        example: 01h3rdp12ba4ss338wj4161gjq
+        required: true
+        schema:
+          type: string
+  /api/v1/super-admin/newsletters:
+    get:
+      summary: 'GET Newsletters'
+      operationId: gETNewsletters
+      description: 'Returns paginated list of newsletters.'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Page number.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Page number.'
+            example: 1
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","email":"john@snow.com", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+    post:
+      summary: 'POST Newsletter'
+      operationId: pOSTNewsletter
+      description: 'Creates a new newsletter record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","email":"john@snow.com", ...}, ...}'
+        422:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"message":"The name field is required.","errors":{"name":["The name field is required."]}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 150 characters.'
+                  example: tkmworsgcdfejv
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: iterry@example.net
+              required:
+                - name
+                - email
+  '/api/v1/super-admin/newsletters/{id}':
+    get:
+      summary: 'GET Newsletter'
+      operationId: gETNewsletter
+      description: 'Returns a newsletter record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","email":"john@snow.com", ...}, ...}'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Record not found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Record not found.'
+      tags:
+        - 'Admin endpoints'
+    put:
+      summary: 'PUT Newsletter'
+      operationId: pUTNewsletter
+      description: 'Updates newsletter record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","email":"john@snow.com", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: null
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: hartmann.lou@example.com
+    delete:
+      summary: 'DELETE Newsletter'
+      operationId: dELETENewsletter
+      description: 'Deletes newsletter record.'
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - 'Admin endpoints'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the newsletter.'
+        example: 01h3rdp1j9x2wx731hvzedf403
+        required: true
+        schema:
+          type: string
+  /api/v1/super-admin/tags:
+    get:
+      summary: 'GET Tags'
+      operationId: gETTags
+      description: 'Returns paginated list of tags.'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Page number.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Page number.'
+            example: 1
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"Karaoke","description":"This is the regular karaoke.", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+    post:
+      summary: 'POST Tag'
+      operationId: pOSTTag
+      description: 'Creates a new tag record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"Karaoke","description":"This is the regular karaoke.", ...}, ...}'
+        422:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"message":"The title field is required.","errors":{"title":["The title field is required."]}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ''
+                  example: accusantium
+                description:
+                  type: string
+                  description: ''
+                  example: nulla
+              required:
+                - title
+                - description
+  '/api/v1/super-admin/tags/{id}':
+    get:
+      summary: 'GET Tag'
+      operationId: gETTag
+      description: 'Returns a tag record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"Karaoke","description":"This is the regular karaoke.", ...}, ...}'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Record not found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Record not found.'
+      tags:
+        - 'Admin endpoints'
+    put:
+      summary: 'PUT Tag'
+      operationId: pUTTag
+      description: 'Updates tag record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"Karaoke","description":"This is the regular karaoke.", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ''
+                  example: null
+                description:
+                  type: string
+                  description: ''
+                  example: null
+    delete:
+      summary: 'DELETE Tag'
+      operationId: dELETETag
+      description: 'Deletes tag record.'
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - 'Admin endpoints'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the tag.'
+        example: deleniti
+        required: true
+        schema:
+          type: string
+  /api/v1/super-admin/tickets:
+    get:
+      summary: 'GET Tickets'
+      operationId: gETTickets
+      description: 'Returns paginated list of tickets.'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Page number.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Page number.'
+            example: 1
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15atksjr11hrck0d20230123","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"ticket_type":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Ticket Type","description":"This is the first ticket type"},"added_by":"01h3hkhxrh15atksjr11hrck0d","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"},"payment_confirmed":0,"payment_confirmed_by":"01h3hkhxrh15atksjr11hrck0d", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+    post:
+      summary: 'POST Ticket'
+      operationId: pOSTTicket
+      description: 'Creates a new ticket record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15atksjr11hrck0d20230123","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"ticket_type":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Ticket Type","description":"This is the first ticket type"},"added_by":"01h3hkhxrh15atksjr11hrck0d","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"},"payment_confirmed":0,"payment_confirmed_by":"01h3hkhxrh15atksjr11hrck0d", ...}, ...}'
+        422:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"message":"The added_by field is required.","errors":{"added_by":["The added_by field is required."]}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                event_id:
+                  type: string
+                  description: ''
+                  example: laudantium
+                ticket_type_id:
+                  type: string
+                  description: ''
+                  example: aut
+                user_id:
+                  type: string
+                  description: ''
+                  example: ea
+                amount_paid:
+                  type: number
+                  description: ''
+                  example: 363056.0
+                currency_id:
+                  type: string
+                  description: ''
+                  example: nihil
+                payment_confirmed:
+                  type: boolean
+                  description: ''
+                  example: false
+              required:
+                - event_id
+                - ticket_type_id
+                - user_id
+                - amount_paid
+                - currency_id
+  '/api/v1/super-admin/tickets/{id}':
+    get:
+      summary: 'GET Ticket'
+      operationId: gETTicket
+      description: 'Returns a ticket record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15atksjr11hrck0d20230123","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"ticket_type":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Ticket Type","description":"This is the first ticket type"},"added_by":"01h3hkhxrh15atksjr11hrck0d","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"},"payment_confirmed":0,"payment_confirmed_by":"01h3hkhxrh15atksjr11hrck0d", ...}, ...}'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Record not found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Record not found.'
+      tags:
+        - 'Admin endpoints'
+    put:
+      summary: 'PUT Ticket'
+      operationId: pUTTicket
+      description: 'Updates ticket record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15atksjr11hrck0d20230123","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"ticket_type":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Ticket Type","description":"This is the first ticket type"},"added_by":"01h3hkhxrh15atksjr11hrck0d","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"},"payment_confirmed":0,"payment_confirmed_by":"01h3hkhxrh15atksjr11hrck0d", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                event_id:
+                  type: string
+                  description: ''
+                  example: null
+                ticket_type_id:
+                  type: string
+                  description: ''
+                  example: null
+                user_id:
+                  type: string
+                  description: ''
+                  example: null
+                amount_paid:
+                  type: string
+                  description: ''
+                  example: null
+                currency_id:
+                  type: string
+                  description: ''
+                  example: null
+                payment_confirmed:
+                  type: boolean
+                  description: ''
+                  example: true
+    delete:
+      summary: 'DELETE Ticket'
+      operationId: dELETETicket
+      description: 'Deletes ticket record.'
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - 'Admin endpoints'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the ticket.'
+        example: 01h3rdp1cem74kxrvdgm08208g
+        required: true
+        schema:
+          type: string
+  /api/v1/super-admin/ticket-types:
+    get:
+      summary: 'GET Ticket Types'
+      operationId: gETTicketTypes
+      description: 'Returns paginated list of ticket types.'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Page number.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Page number.'
+            example: 1
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"title":"First event","slug":"first-event-sample","description":"This is the first event","available_tickets":200,"price":200,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"}, ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+    post:
+      summary: 'POST Ticket Type'
+      operationId: pOSTTicketType
+      description: 'Creates a new ticket type record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"title":"First event","slug":"first-event-sample","description":"This is the first event","available_tickets":200,"price":200,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"}, ...}, ...}'
+        422:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"message":"The title field is required.","errors":{"title":["The title field is required."]}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                event_id:
+                  type: string
+                  description: ''
+                  example: non
+                title:
+                  type: string
+                  description: 'Must not be greater than 155 characters.'
+                  example: oxjerhrutgac
+                description:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'Veritatis voluptatem maiores ducimus earum tempore.'
+                available_tickets:
+                  type: number
+                  description: ''
+                  example: 1709.5553
+                price:
+                  type: string
+                  description: ''
+                  example: voluptatem
+                currency_id:
+                  type: string
+                  description: ''
+                  example: illum
+              required:
+                - event_id
+                - title
+                - description
+                - available_tickets
+                - price
+                - currency_id
+  '/api/v1/super-admin/ticket-types/{id}':
+    get:
+      summary: 'GET Ticket Type'
+      operationId: gETTicketType
+      description: 'Returns a ticket type record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"title":"First event","slug":"first-event-sample","description":"This is the first event","available_tickets":200,"price":200,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"}, ...}, ...}'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Record not found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Record not found.'
+      tags:
+        - 'Admin endpoints'
+    put:
+      summary: 'PUT Ticket type'
+      operationId: pUTTicketType
+      description: 'Updates ticket type record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"title":"First event","slug":"first-event-sample","description":"This is the first event","available_tickets":200,"price":200,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"}, ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                event_id:
+                  type: string
+                  description: ''
+                  example: null
+                title:
+                  type: string
+                  description: ''
+                  example: null
+                description:
+                  type: string
+                  description: ''
+                  example: null
+                available_tickets:
+                  type: string
+                  description: ''
+                  example: null
+                price:
+                  type: string
+                  description: ''
+                  example: null
+                currency_id:
+                  type: string
+                  description: ''
+                  example: null
+    delete:
+      summary: 'DELETE Ticket Type'
+      operationId: dELETETicketType
+      description: 'Deletes ticket type record.'
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - 'Admin endpoints'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the ticket type.'
+        example: 01h3rdp18hfrez47mhs1pjp6xe
+        required: true
+        schema:
+          type: string
+  /api/v1/super-admin/ticket-verifications:
+    get:
+      summary: 'GET Ticket Verifications'
+      operationId: gETTicketVerifications
+      description: 'Returns paginated list of ticket verifications.'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Page number.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Page number.'
+            example: 1
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15SAMPLE","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"USD"}},"user":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","username":"user1"},"payment_confirmed":0, ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+    post:
+      summary: 'POST Ticket Verification'
+      operationId: pOSTTicketVerification
+      description: 'Creates a new ticket verification record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15SAMPLE","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"USD"}},"user":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","username":"user1"},"payment_confirmed":0, ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ticket_id:
+                  type: string
+                  description: ''
+                  example: numquam
+                user_id:
+                  type: string
+                  description: ''
+                  example: nulla
+                payment_confirmed:
+                  type: string
+                  description: ''
+                  example: vel
+              required:
+                - ticket_id
+                - user_id
+                - payment_confirmed
+  '/api/v1/super-admin/ticket-verifications/{id}':
+    get:
+      summary: 'GET Ticket Verification'
+      operationId: gETTicketVerification
+      description: 'Returns a ticket verification record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15SAMPLE","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"USD"}},"user":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","username":"user1"},"payment_confirmed":0, ...}, ...}'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Record not found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Record not found.'
+      tags:
+        - 'Admin endpoints'
+    put:
+      summary: 'PUT Ticket Verification'
+      operationId: pUTTicketVerification
+      description: 'Updates ticket verification record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15SAMPLE","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"USD"}},"user":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","username":"user1"},"payment_confirmed":0, ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ticket_id:
+                  type: string
+                  description: ''
+                  example: null
+                user_id:
+                  type: string
+                  description: ''
+                  example: null
+                payment_confirmed:
+                  type: string
+                  description: ''
+                  example: null
+    delete:
+      summary: 'DELETE Ticket Verification'
+      operationId: dELETETicketVerification
+      description: 'Deletes ticket verification record.'
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - 'Admin endpoints'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the ticket verification.'
+        example: 01h3rdp1ft3ms6a8vx8z71wqe1
+        required: true
+        schema:
+          type: string
+  /api/v1/super-admin/users:
+    get:
+      summary: 'GET Users'
+      operationId: gETUsers
+      description: 'Returns paginated list of users.'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Page number.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Page number.'
+            example: 1
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","role_id":"01h3hkhxrh15atksjr11hrck0d","username":"user1","name":"John Snow","email":"john@snow.com", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+    post:
+      summary: 'POST User'
+      operationId: pOSTUser
+      description: 'Creates a new user record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","role_id":"01h3hkhxrh15atksjr11hrck0d","username":"user1","name":"John Snow","email":"john@snow.com", ...}, ...}'
+        422:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"message":"The name field is required.","errors":{"name":["The name field is required."]}, ...}'
+      tags:
+        - 'Admin endpoints'
+  '/api/v1/super-admin/users/{id}':
+    get:
+      summary: 'GET User'
+      operationId: gETUser
+      description: 'Returns a user record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","role_id":"01h3hkhxrh15atksjr11hrck0d","username":"user1","name":"John Snow","email":"john@snow.com", ...}, ...}'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Record not found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Record not found.'
+      tags:
+        - 'Admin endpoints'
+    put:
+      summary: 'PUT User'
+      operationId: pUTUser
+      description: 'Updates user record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","role_id":"01h3hkhxrh15atksjr11hrck0d","username":"user1","name":"John Snow","email":"john@snow.com", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+    delete:
+      summary: 'DELETE User'
+      operationId: dELETEUser
+      description: 'Deletes user record.'
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - 'Admin endpoints'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 01h3rdp0q7x270z9z8amap0fbq
+        required: true
+        schema:
+          type: string
+  /api/v1/admin/events:
+    get:
+      summary: 'GET Events'
+      operationId: gETEvents
+      description: 'Returns paginated list of events.'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Page number.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Page number.'
+            example: 1
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","event_hall":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event Hall","description":"This is the first event hall."},"host":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Host"},"title":"First Event","slug":"first-event","description":"This is the first event","start_date":"2023-01-23","start_time":"01:23","end_date":"2023-01-23","end_time":"01:23","age_limit":"18", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+  '/api/v1/admin/events/{id}':
+    get:
+      summary: 'GET Event'
+      operationId: gETEvent
+      description: 'Returns a event record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","event_hall":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event Hall","description":"This is the first event hall."},"host":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Host"},"title":"First Event","slug":"first-event","description":"This is the first event","start_date":"2023-01-23","start_time":"01:23","end_date":"2023-01-23","end_time":"01:23","age_limit":"18", ...}, ...}'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Record not found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Record not found.'
+      tags:
+        - 'Admin endpoints'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the event.'
+        example: 01h3rdp156apkxnycafx138fy1
+        required: true
+        schema:
+          type: string
+  '/api/v1/admin/events/{event_slug}/tickets':
+    get:
+      summary: 'PUT Event'
+      operationId: pUTEvent
+      description: 'Updates event record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","event_hall":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event Hall","description":"This is the first event hall."},"host":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Host"},"title":"First Event","slug":"first-event","description":"This is the first event","start_date":"2023-01-23","start_time":"01:23","end_date":"2023-01-23","end_time":"01:23","age_limit":"18", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+    parameters:
+      -
+        in: path
+        name: event_slug
+        description: 'The slug of the event.'
+        example: 01h3rdp156apkxnycafx138fy1
+        required: true
+        schema:
+          type: string
+  /api/v1/admin/tickets:
+    get:
+      summary: 'GET Tickets'
+      operationId: gETTickets
+      description: 'Returns paginated list of tickets.'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Page number.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Page number.'
+            example: 1
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15atksjr11hrck0d20230123","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"ticket_type":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Ticket Type","description":"This is the first ticket type"},"added_by":"01h3hkhxrh15atksjr11hrck0d","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"},"payment_confirmed":0,"payment_confirmed_by":"01h3hkhxrh15atksjr11hrck0d", ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+    post:
+      summary: 'POST Ticket'
+      operationId: pOSTTicket
+      description: 'Creates a new ticket record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15atksjr11hrck0d20230123","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"ticket_type":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Ticket Type","description":"This is the first ticket type"},"added_by":"01h3hkhxrh15atksjr11hrck0d","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"},"payment_confirmed":0,"payment_confirmed_by":"01h3hkhxrh15atksjr11hrck0d", ...}, ...}'
+        422:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"message":"The added_by field is required.","errors":{"added_by":["The added_by field is required."]}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                event_id:
+                  type: string
+                  description: ''
+                  example: corrupti
+                ticket_type_id:
+                  type: string
+                  description: ''
+                  example: quasi
+                user_id:
+                  type: string
+                  description: ''
+                  example: voluptate
+                amount_paid:
+                  type: number
+                  description: ''
+                  example: 23435.88270549
+                currency_id:
+                  type: string
+                  description: ''
+                  example: animi
+                payment_confirmed:
+                  type: boolean
+                  description: ''
+                  example: false
+              required:
+                - event_id
+                - ticket_type_id
+                - user_id
+                - amount_paid
+                - currency_id
+  '/api/v1/admin/tickets/{id}':
+    get:
+      summary: 'GET Ticket'
+      operationId: gETTicket
+      description: 'Returns a ticket record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15atksjr11hrck0d20230123","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"ticket_type":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Ticket Type","description":"This is the first ticket type"},"added_by":"01h3hkhxrh15atksjr11hrck0d","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"},"payment_confirmed":0,"payment_confirmed_by":"01h3hkhxrh15atksjr11hrck0d", ...}, ...}'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Record not found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Record not found.'
+      tags:
+        - 'Admin endpoints'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the ticket.'
+        example: 01h3rdp1cem74kxrvdgm08208g
+        required: true
+        schema:
+          type: string
+  /api/v1/admin/ticket-verifications:
+    get:
+      summary: 'GET Ticket Verifications'
+      operationId: gETTicketVerifications
+      description: 'Returns paginated list of ticket verifications.'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Page number.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Page number.'
+            example: 1
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15SAMPLE","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"USD"}},"user":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","username":"user1"},"payment_confirmed":0, ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+    post:
+      summary: 'POST Ticket Verification'
+      operationId: pOSTTicketVerification
+      description: 'Creates a new ticket verification record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15SAMPLE","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"USD"}},"user":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","username":"user1"},"payment_confirmed":0, ...}, ...}'
+      tags:
+        - 'Admin endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ticket_id:
+                  type: string
+                  description: ''
+                  example: incidunt
+                user_id:
+                  type: string
+                  description: ''
+                  example: qui
+                payment_confirmed:
+                  type: string
+                  description: ''
+                  example: animi
+              required:
+                - ticket_id
+                - user_id
+                - payment_confirmed
+  '/api/v1/admin/ticket-verifications/{id}':
+    get:
+      summary: 'GET Ticket Verification'
+      operationId: gETTicketVerification
+      description: 'Returns a ticket verification record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15SAMPLE","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","title":"USD"}},"user":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","username":"user1"},"payment_confirmed":0, ...}, ...}'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Record not found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Record not found.'
+      tags:
+        - 'Admin endpoints'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the ticket verification.'
+        example: 01h3rdp1ft3ms6a8vx8z71wqe1
+        required: true
+        schema:
+          type: string
+  /api/v1/register:
+    post:
+      summary: 'POST Register'
+      operationId: pOSTRegister
+      description: 'Register with an existing user.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  access_token: 1|HvglYzIrLURVGx6Xe41HKj1CrNsxRxe4pLA2oISo
+                  name: 'John Snow'
+                  role: 4
+                properties:
+                  access_token:
+                    type: string
+                    example: 1|HvglYzIrLURVGx6Xe41HKj1CrNsxRxe4pLA2oISo
+                  name:
+                    type: string
+                    example: 'John Snow'
+                  role:
+                    type: integer
+                    example: 4
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'The provided credentials are incorrect.'
+                properties:
+                  error:
+                    type: string
+                    example: 'The provided credentials are incorrect.'
+      tags:
+        - 'Auth endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: vfx
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: zymkpdar
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: nitzsche.kale@example.com
+                password:
+                  type: string
+                  description: ''
+                  example: et
+              required:
+                - username
+                - name
+                - email
+                - password
+      security: []
+  /api/v1/login:
+    post:
+      summary: 'POST Login'
+      operationId: pOSTLogin
+      description: 'Login with an existing user.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  access_token: 1|HvglYzIrLURVGx6Xe41HKj1CrNsxRxe4pLA2oISo
+                  name: 'John Snow'
+                  role: 4
+                properties:
+                  access_token:
+                    type: string
+                    example: 1|HvglYzIrLURVGx6Xe41HKj1CrNsxRxe4pLA2oISo
+                  name:
+                    type: string
+                    example: 'John Snow'
+                  role:
+                    type: integer
+                    example: 4
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'The provided credentials are incorrect.'
+                properties:
+                  error:
+                    type: string
+                    example: 'The provided credentials are incorrect.'
+      tags:
+        - 'Auth endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: 'Must contain only letters and numbers.'
+                  example: 4p2wtl6
+                password:
+                  type: string
+                  description: ''
+                  example: velit
+              required:
+                - username
+                - password
+      security: []
+  /api/v1/password-reset:
+    put:
+      summary: 'PUT Reset Password'
+      operationId: pUTResetPassword
+      description: 'Reset Password of an existing user.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: 'Your password has been updated.'
+                properties:
+                  success:
+                    type: string
+                    example: 'Your password has been updated.'
+      tags:
+        - 'Auth endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                current_password:
+                  type: string
+                  description: ''
+                  example: voluptatibus
+                password:
+                  type: string
+                  description: ''
+                  example: consequuntur
+              required:
+                - current_password
+                - password
+  /api/v1/logout:
+    post:
+      summary: 'POST Logout'
+      operationId: pOSTLogout
+      description: 'Logout authenticated user.'
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - 'Auth endpoints'
+  /api/v1/events:
+    get:
+      summary: 'GET Events'
+      operationId: gETEvents
+      description: 'Returns paginated list of events.'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Page number.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Page number.'
+            example: 1
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","event_hall":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event Hall","description":"This is the first event hall."},"host":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Host"},"title":"First Event","slug":"first-event","description":"This is the first event","start_date":"2023-01-23","start_time":"01:23","end_date":"2023-01-23","end_time":"01:23","age_limit":"18", ...}, ...}'
+      tags:
+        - 'Public endpoints'
+      security: []
+  '/api/v1/events/{id}':
+    get:
+      summary: 'GET Event'
+      operationId: gETEvent
+      description: 'Returns a event record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","event_hall":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event Hall","description":"This is the first event hall."},"host":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Host"},"title":"First Event","slug":"first-event","description":"This is the first event","start_date":"2023-01-23","start_time":"01:23","end_date":"2023-01-23","end_time":"01:23","age_limit":"18", ...}, ...}'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Record not found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Record not found.'
+      tags:
+        - 'Public endpoints'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the event.'
+        example: 01h3rdp156apkxnycafx138fy1
+        required: true
+        schema:
+          type: string
+  '/api/v1/events/{event_slug}/tickets':
+    get:
+      summary: 'GET Ticket by Event'
+      operationId: gETTicketByEvent
+      description: 'Retrieves tickets by event record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15atksjr11hrck0d20230123","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"ticket_type":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Ticket Type","description":"This is the first ticket type"},"added_by":"01h3hkhxrh15atksjr11hrck0d","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"},"payment_confirmed":0,"payment_confirmed_by":"01h3hkhxrh15atksjr11hrck0d", ...}, ...}'
+      tags:
+        - 'Public endpoints'
+      security: []
+    parameters:
+      -
+        in: path
+        name: event_slug
+        description: 'The slug of the event.'
+        example: 01h3rdp156apkxnycafx138fy1
+        required: true
+        schema:
+          type: string
+  /api/v1/feedbacks:
+    post:
+      summary: 'POST Feedback'
+      operationId: pOSTFeedback
+      description: 'Creates a new feedback record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","added_by":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow"},"subject":"Feedback Subject","message":"This is the feedback message.", ...}, ...}'
+        422:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"message":"The subject field is required.","errors":{"subject":["The subject field is required."]}, ...}'
+      tags:
+        - 'Public endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: null
+                subject:
+                  type: string
+                  description: 'Must not be greater than 150 characters.'
+                  example: zdltxtxhhrbqyv
+                message:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: wbpvsbgftbxaddrnid
+              required:
+                - subject
+                - message
+      security: []
+  /api/v1/user/events:
+    get:
+      summary: 'GET Events'
+      operationId: gETEvents
+      description: 'Returns paginated list of events.'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Page number.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Page number.'
+            example: 1
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","event_hall":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event Hall","description":"This is the first event hall."},"host":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Host"},"title":"First Event","slug":"first-event","description":"This is the first event","start_date":"2023-01-23","start_time":"01:23","end_date":"2023-01-23","end_time":"01:23","age_limit":"18", ...}, ...}'
+      tags:
+        - 'User endpoints'
+  '/api/v1/user/events/{id}':
+    get:
+      summary: 'GET Event'
+      operationId: gETEvent
+      description: 'Returns a event record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","event_hall":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event Hall","description":"This is the first event hall."},"host":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Host"},"title":"First Event","slug":"first-event","description":"This is the first event","start_date":"2023-01-23","start_time":"01:23","end_date":"2023-01-23","end_time":"01:23","age_limit":"18", ...}, ...}'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Record not found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Record not found.'
+      tags:
+        - 'User endpoints'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the event.'
+        example: 01h3rdp156apkxnycafx138fy1
+        required: true
+        schema:
+          type: string
+  '/api/v1/user/events/{event_slug}/tickets':
+    get:
+      summary: 'GET Tickets by Event'
+      operationId: gETTicketsByEvent
+      description: 'Retrieves tickets by event record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15atksjr11hrck0d20230123","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"ticket_type":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Ticket Type","description":"This is the first ticket type"},"added_by":"01h3hkhxrh15atksjr11hrck0d","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"},"payment_confirmed":0,"payment_confirmed_by":"01h3hkhxrh15atksjr11hrck0d", ...}, ...}'
+      tags:
+        - 'User endpoints'
+    parameters:
+      -
+        in: path
+        name: event_slug
+        description: 'The slug of the event.'
+        example: 01h3rdp156apkxnycafx138fy1
+        required: true
+        schema:
+          type: string
+  /api/v1/user/tickets:
+    get:
+      summary: 'GET Tickets'
+      operationId: gETTickets
+      description: 'Returns paginated list of tickets.'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Page number.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Page number.'
+            example: 1
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15atksjr11hrck0d20230123","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"ticket_type":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Ticket Type","description":"This is the first ticket type"},"added_by":"01h3hkhxrh15atksjr11hrck0d","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"},"payment_confirmed":0,"payment_confirmed_by":"01h3hkhxrh15atksjr11hrck0d", ...}, ...}'
+      tags:
+        - 'User endpoints'
+    post:
+      summary: 'POST Ticket'
+      operationId: pOSTTicket
+      description: 'Creates a new ticket record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15atksjr11hrck0d20230123","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"ticket_type":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Ticket Type","description":"This is the first ticket type"},"added_by":"01h3hkhxrh15atksjr11hrck0d","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"},"payment_confirmed":0,"payment_confirmed_by":"01h3hkhxrh15atksjr11hrck0d", ...}, ...}'
+        422:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"message":"The added_by field is required.","errors":{"added_by":["The added_by field is required."]}, ...}'
+      tags:
+        - 'User endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                event_id:
+                  type: string
+                  description: ''
+                  example: a
+                ticket_type_id:
+                  type: string
+                  description: ''
+                  example: quam
+                user_id:
+                  type: string
+                  description: ''
+                  example: ducimus
+                amount_paid:
+                  type: number
+                  description: ''
+                  example: 27.3887
+                currency_id:
+                  type: string
+                  description: ''
+                  example: excepturi
+                payment_confirmed:
+                  type: boolean
+                  description: ''
+                  example: true
+              required:
+                - event_id
+                - ticket_type_id
+                - user_id
+                - amount_paid
+                - currency_id
+  '/api/v1/user/tickets/{id}':
+    get:
+      summary: 'GET Ticket'
+      operationId: gETTicket
+      description: 'Returns a ticket record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","ticket_number":"01h3hkhxrh15atksjr11hrck0d20230123","event":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Event","description":"This is the first event"},"ticket_type":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"First Ticket Type","description":"This is the first ticket type"},"added_by":"01h3hkhxrh15atksjr11hrck0d","amount_paid":12,"currency":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"USD"},"payment_confirmed":0,"payment_confirmed_by":"01h3hkhxrh15atksjr11hrck0d", ...}, ...}'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Record not found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Record not found.'
+      tags:
+        - 'User endpoints'
+    delete:
+      summary: 'DELETE Ticket'
+      operationId: dELETETicket
+      description: 'Deletes ticket record.'
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - 'User endpoints'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the ticket.'
+        example: 01h3rdp1cem74kxrvdgm08208g
+        required: true
+        schema:
+          type: string
+  /api/v1/user/feedbacks:
+    get:
+      summary: 'GET Feedbacks'
+      operationId: gETFeedbacks
+      description: 'Returns paginated list of feedbacks.'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Page number.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Page number.'
+            example: 1
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","added_by":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow"},"subject":"Feedback Subject","message":"This is the feedback message.", ...}, ...}'
+      tags:
+        - 'User endpoints'
+    post:
+      summary: 'POST Feedback'
+      operationId: pOSTFeedback
+      description: 'Creates a new feedback record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","added_by":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow"},"subject":"Feedback Subject","message":"This is the feedback message.", ...}, ...}'
+        422:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"message":"The subject field is required.","errors":{"subject":["The subject field is required."]}, ...}'
+      tags:
+        - 'User endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: null
+                subject:
+                  type: string
+                  description: 'Must not be greater than 150 characters.'
+                  example: ifhtgbduxgmaurkdbdbnwiyxd
+                message:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: cfxzv
+              required:
+                - subject
+                - message
+  '/api/v1/user/feedbacks/{id}':
+    get:
+      summary: 'GET Feedback'
+      operationId: gETFeedback
+      description: 'Returns a feedback record.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"data":{"id":"01h3hkhxrh15atksjr11hrck0d","added_by":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow"},"subject":"Feedback Subject","message":"This is the feedback message.", ...}, ...}'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Record not found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Record not found.'
+      tags:
+        - 'User endpoints'
+    delete:
+      summary: 'DELETE Feedback'
+      operationId: dELETEFeedback
+      description: 'Deletes feedback record.'
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - 'User endpoints'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the feedback.'
+        example: 01h3rdp1hab6xx7st0hqcshx6j
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: 'Admin endpoints'
+    description: ''
+  -
+    name: 'Auth endpoints'
+    description: ''
+  -
+    name: 'Public endpoints'
+    description: ''
+  -
+    name: 'User endpoints'
+    description: ''

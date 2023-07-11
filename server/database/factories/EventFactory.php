@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\EventHall;
 use App\Models\Host;
 use App\Models\Role;
 use App\Models\User;
-use App\Models\EventHall;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

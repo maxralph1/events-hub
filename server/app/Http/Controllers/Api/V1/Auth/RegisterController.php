@@ -2,18 +2,26 @@
 
 namespace App\Http\Controllers\Api\V1\Auth;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\RegisterRequest;
 use App\Models\Role;
 use App\Models\User;
-use Illuminate\Http\Response;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\RegisterRequest;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Hash;
 
+/**
+ * @group Auth endpoints
+ */
 class RegisterController extends Controller
 {
     /**
-     * Handle the incoming request.
+     * POST Register
+     *
+     * Register with an existing user.
+     *
+     * @response {"access_token":"1|HvglYzIrLURVGx6Xe41HKj1CrNsxRxe4pLA2oISo","name":"John Snow","role":4}
+     * @response 422 {"error": "The provided credentials are incorrect."}
      */
     public function __invoke(RegisterRequest $request)
     {
@@ -33,6 +41,8 @@ class RegisterController extends Controller
 
         return response()->json([
             'access_token' => $user->createToken($device)->plainTextToken,
+            'name' => $user->name,
+            'role_id' => $user->role_id,
         ], Response::HTTP_CREATED);
     }
 }

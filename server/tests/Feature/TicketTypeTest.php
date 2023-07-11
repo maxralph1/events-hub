@@ -2,14 +2,14 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
-use App\Models\Role;
-use App\Models\User;
-use App\Models\Event;
+// use Illuminate\Foundation\Testing\WithFaker;
 use App\Models\Currency;
+use App\Models\Event;
+use App\Models\Role;
 use App\Models\TicketType;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class TicketTypeTest extends TestCase
 {
@@ -40,7 +40,7 @@ class TicketTypeTest extends TestCase
 
         $response = $this->actingAs($superAdmin)->postJson('/api/v1/super-admin/ticket-types', [
             'event_id' => Event::all()->random()->id,
-            'title' => "Chicken Festivale",
+            'title' => 'Chicken Festivale',
             // 'slug' => fake()->slug(),
             'description' => 'This is a Chicken Festivale',
             'available_tickets' => 3000000,
@@ -65,8 +65,6 @@ class TicketTypeTest extends TestCase
             'price' => rand(2500, 1500),
             'currency_id' => Currency::all()->random()->id,
         ]);
-
-
 
         $response->assertStatus(201)
             ->assertJsonCount(11, 'data')
@@ -155,7 +153,7 @@ class TicketTypeTest extends TestCase
 
         $this->assertDatabaseHas('ticket_types', [
             'id' => $ticketType->id,
-            'deleted_at' => $ticketType->updated_at       // consider ignoring this line as the 'deleted_at' may differ from the 'updated_at' field by 1 second, thereby causing the test to fail; but will pass if ran again immediately after a failure.
+            'deleted_at' => $ticketType->updated_at,       // consider ignoring this line as the 'deleted_at' may differ from the 'updated_at' field by 1 second, thereby causing the test to fail; but will pass if ran again immediately after a failure.
         ])->assertDatabaseCount('ticket_types', 13);
 
         $response2->assertStatus(403);

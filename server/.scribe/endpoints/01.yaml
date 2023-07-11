@@ -1,0 +1,223 @@
+name: 'Auth endpoints'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/register
+    metadata:
+      groupName: 'Auth endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'POST Register'
+      description: 'Register with an existing user.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      username:
+        name: username
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: vfx
+        type: string
+        custom: []
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: zymkpdar
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: true
+        example: nitzsche.kale@example.com
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: et
+        type: string
+        custom: []
+    cleanBodyParameters:
+      username: vfx
+      name: zymkpdar
+      email: nitzsche.kale@example.com
+      password: et
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"access_token":"1|HvglYzIrLURVGx6Xe41HKj1CrNsxRxe4pLA2oISo","name":"John Snow","role":4}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"error": "The provided credentials are incorrect."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/login
+    metadata:
+      groupName: 'Auth endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'POST Login'
+      description: 'Login with an existing user.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      username:
+        name: username
+        description: 'Must contain only letters and numbers.'
+        required: true
+        example: 4p2wtl6
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: velit
+        type: string
+        custom: []
+    cleanBodyParameters:
+      username: 4p2wtl6
+      password: velit
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"access_token":"1|HvglYzIrLURVGx6Xe41HKj1CrNsxRxe4pLA2oISo","name":"John Snow","role":4}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"error": "The provided credentials are incorrect."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: api/v1/password-reset
+    metadata:
+      groupName: 'Auth endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'PUT Reset Password'
+      description: 'Reset Password of an existing user.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      current_password:
+        name: current_password
+        description: ''
+        required: true
+        example: voluptatibus
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: consequuntur
+        type: string
+        custom: []
+    cleanBodyParameters:
+      current_password: voluptatibus
+      password: consequuntur
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":"Your password has been updated."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/logout
+    metadata:
+      groupName: 'Auth endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'POST Logout'
+      description: 'Logout authenticated user.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

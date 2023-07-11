@@ -2,16 +2,27 @@
 
 namespace App\Http\Controllers\Api\V1\Admin;
 
-use App\Models\Country;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CountryResource;
 use App\Http\Requests\StoreCountryRequest;
 use App\Http\Requests\UpdateCountryRequest;
+use App\Http\Resources\CountryResource;
+use App\Models\Country;
 
+/**
+ * @group Admin endpoints
+ */
 class CountryController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * GET Countries
+     *
+     * Returns paginated list of countries.
+     * 
+     * @authenticated
+     *
+     * @queryParam page integer Page number. Example: 1
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"Slovekia", ...}, ...}
      */
     public function index()
     {
@@ -23,7 +34,14 @@ class CountryController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * POST Country
+     *
+     * Creates a new country record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"Slovekia", ...}, ...}
+     * @response 422 {"message":"The name field is required.","errors":{"name":["The name field is required."]}, ...}
      */
     public function store(StoreCountryRequest $request)
     {
@@ -33,7 +51,14 @@ class CountryController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * GET Country
+     *
+     * Returns a country record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"Slovekia", ...}, ...}
+     * @response 404 {"message":"Record not found."}
      */
     public function show(Country $country)
     {
@@ -41,7 +66,13 @@ class CountryController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * PUT Country
+     *
+     * Updates country record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"Slovekia", ...}, ...}
      */
     public function update(UpdateCountryRequest $request, Country $country)
     {
@@ -51,7 +82,13 @@ class CountryController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * DELETE Country
+     *
+     * Deletes country record.
+     * 
+     * @authenticated
+     *
+     * @response 204 {}
      */
     public function destroy(Country $country)
     {

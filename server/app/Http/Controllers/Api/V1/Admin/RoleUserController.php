@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Api\V1\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\RoleUser;
 use App\Http\Requests\StoreRoleUserRequest;
 use App\Http\Requests\UpdateRoleUserRequest;
+use App\Models\RoleUser;
 
 class RoleUserController extends Controller
 {

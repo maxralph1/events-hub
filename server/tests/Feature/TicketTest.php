@@ -2,15 +2,15 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
-use App\Models\Role;
-use App\Models\User;
-use App\Models\Event;
+// use Illuminate\Foundation\Testing\WithFaker;
 use App\Models\Currency;
+use App\Models\Event;
+use App\Models\Role;
 use App\Models\Ticket;
 use App\Models\TicketType;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class TicketTest extends TestCase
 {
@@ -211,7 +211,7 @@ class TicketTest extends TestCase
 
         $this->assertDatabaseHas('tickets', [
             'id' => $ticket->id,
-            'deleted_at' => $ticket->updated_at       // consider ignoring this line as the 'deleted_at' may differ from the 'updated_at' field by 1 second, thereby causing the test to fail; but will pass if ran again immediately after a failure.
+            'deleted_at' => $ticket->updated_at,       // consider ignoring this line as the 'deleted_at' may differ from the 'updated_at' field by 1 second, thereby causing the test to fail; but will pass if ran again immediately after a failure.
         ])->assertDatabaseCount('tickets', 13);
 
         $response2->assertStatus(403);
@@ -236,7 +236,7 @@ class TicketTest extends TestCase
 
         $this->assertDatabaseHas('tickets', [
             'id' => $ticket->id,
-            'deleted_at' => $ticket->updated_at       // consider ignoring this line as the 'deleted_at' may differ from the 'updated_at' field by 1 second, thereby causing the test to fail; but will pass if ran again immediately after a failure.
+            'deleted_at' => $ticket->updated_at,       // consider ignoring this line as the 'deleted_at' may differ from the 'updated_at' field by 1 second, thereby causing the test to fail; but will pass if ran again immediately after a failure.
         ])->assertDatabaseCount('tickets', 13);
 
         $response2->assertStatus(403);

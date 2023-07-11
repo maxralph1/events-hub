@@ -2,12 +2,12 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
+// use Illuminate\Foundation\Testing\WithFaker;
+use App\Models\Country;
 use App\Models\Role;
 use App\Models\User;
-use App\Models\Country;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class CountryTest extends TestCase
 {
@@ -133,7 +133,7 @@ class CountryTest extends TestCase
 
         $this->assertDatabaseHas('countries', [
             'id' => $country->id,
-            'deleted_at' => $country->updated_at       // consider ignoring this line as the 'deleted_at' may differ from the 'updated_at' field by 1 second, thereby causing the test to fail; but will pass if ran again immediately after a failure.
+            'deleted_at' => $country->updated_at,       // consider ignoring this line as the 'deleted_at' may differ from the 'updated_at' field by 1 second, thereby causing the test to fail; but will pass if ran again immediately after a failure.
         ])->assertDatabaseCount('countries', 13);
 
         $response2->assertStatus(403);

@@ -2,16 +2,27 @@
 
 namespace App\Http\Controllers\Api\V1\Admin;
 
-use App\Models\Host;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\HostResource;
 use App\Http\Requests\StoreHostRequest;
 use App\Http\Requests\UpdateHostRequest;
+use App\Http\Resources\HostResource;
+use App\Models\Host;
 
+/**
+ * @group Admin endpoints
+ */
 class HostController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * GET Hosts
+     *
+     * Returns paginated list of hosts.
+     * 
+     * @authenticated
+     *
+     * @queryParam page integer Page number. Example: 1
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","description":"John Snow is the king of pop.", ...}, ...}
      */
     public function index()
     {
@@ -23,7 +34,14 @@ class HostController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * POST Host
+     *
+     * Creates a new host record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","description":"John Snow is the king of pop.", ...}, ...}
+     * @response 422 {"message":"The name field is required.","errors":{"name":["The name field is required."]}, ...}
      */
     public function store(StoreHostRequest $request)
     {
@@ -33,7 +51,14 @@ class HostController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * GET Host
+     *
+     * Returns a host record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","description":"John Snow is the king of pop.", ...}, ...}
+     * @response 404 {"message":"Record not found."}
      */
     public function show(Host $host)
     {
@@ -41,7 +66,13 @@ class HostController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * PUT Host
+     *
+     * Updates host record.
+     *
+     * @authenticated
+     *
+     * @response {"data":{"id":"01h3hkhxrh15atksjr11hrck0d","name":"John Snow","description":"John Snow is the king of pop.", ...}, ...}
      */
     public function update(UpdateHostRequest $request, Host $host)
     {
@@ -51,7 +82,13 @@ class HostController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * DELETE Host
+     *
+     * Deletes host record.
+     * 
+     * @authenticated
+     *
+     * @response 204 {}
      */
     public function destroy(Host $host)
     {

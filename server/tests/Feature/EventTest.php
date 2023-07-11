@@ -2,14 +2,14 @@
 
 namespace Tests\Feature;
 
+// use Illuminate\Foundation\Testing\WithFaker;
 use App\Models\Event;
-use Tests\TestCase;
+use App\Models\EventHall;
 use App\Models\Host;
 use App\Models\Role;
 use App\Models\User;
-use App\Models\EventHall;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class EventTest extends TestCase
 {
@@ -181,14 +181,13 @@ class EventTest extends TestCase
         $response2 = $this->actingAs($admin)->deleteJson('/api/v1/super-admin/events/' . $event2->id);
         $response3 = $this->actingAs($genericUser)->deleteJson('/api/v1/super-admin/events/' . $event3->id);
 
-
         $response->assertNoContent();
         $response2->assertStatus(403);
         $response3->assertStatus(403);
 
         $this->assertDatabaseHas('events', [
             'id' => $event->id,
-            'deleted_at' => $event->updated_at       // consider ignoring this line as the 'deleted_at' may differ from the 'updated_at' field by 1 second, thereby causing the test to fail; but will pass if ran again immediately after a failure.
+            'deleted_at' => $event->updated_at,       // consider ignoring this line as the 'deleted_at' may differ from the 'updated_at' field by 1 second, thereby causing the test to fail; but will pass if ran again immediately after a failure.
         ])->assertDatabaseCount('events', 13);
     }
 }

@@ -1,0 +1,3619 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "0aeb02f4-d718-40ec-a0f5-926437235148",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Admin endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET Countries",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/countries",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/countries?page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns paginated list of countries."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"Slovekia\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST Country",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/countries",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/countries"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"p\"}"
+                        },
+                        "description": "Creates a new country record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"Slovekia\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"The name field is required.\",\"errors\":{\"name\":[\"The name field is required.\"]}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Country",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/countries\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/countries\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp0xyr90h5vx4pn5hff2g",
+                                    "description": "The ID of the country."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns a country record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"Slovekia\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"Record not found.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT Country",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/countries\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/countries\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp0xyr90h5vx4pn5hff2g",
+                                    "description": "The ID of the country."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "Updates country record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"Slovekia\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE Country",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/countries\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/countries\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp0xyr90h5vx4pn5hff2g",
+                                    "description": "The ID of the country."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Deletes country record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Currencies",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/currencies",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/currencies?page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns paginated list of currencies."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"title\":\"First currency\",\"description\":\"This is the first currency\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST Currency",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/currencies",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/currencies"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"etbnjlooqydor\",\"description\":\"Id et quisquam eos occaecati eveniet.\"}"
+                        },
+                        "description": "Creates a new currency record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"title\":\"First currency\",\"description\":\"This is the first currency\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"The title field is required.\",\"errors\":{\"title\":[\"The title field is required.\"]}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Currency",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/currencies\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/currencies\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp0zyv2tf6k4andngsc93",
+                                    "description": "The ID of the currency."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns a currency record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"title\":\"First currency\",\"description\":\"This is the first currency\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"Record not found.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT Currency",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/currencies\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/currencies\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp0zyv2tf6k4andngsc93",
+                                    "description": "The ID of the currency."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "Updates currency record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"title\":\"First currency\",\"description\":\"This is the first currency\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE Currency",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/currencies\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/currencies\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp0zyv2tf6k4andngsc93",
+                                    "description": "The ID of the currency."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Deletes currency record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Events",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/events",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/events?page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns paginated list of events."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"event_hall\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event Hall\",\"description\":\"This is the first event hall.\"},\"host\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Host\"},\"title\":\"First Event\",\"slug\":\"first-event\",\"description\":\"This is the first event\",\"start_date\":\"2023-01-23\",\"start_time\":\"01:23\",\"end_date\":\"2023-01-23\",\"end_time\":\"01:23\",\"age_limit\":\"18\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Event",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/events\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/events\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp156apkxnycafx138fy1",
+                                    "description": "The ID of the event."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns a event record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"event_hall\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event Hall\",\"description\":\"This is the first event hall.\"},\"host\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Host\"},\"title\":\"First Event\",\"slug\":\"first-event\",\"description\":\"This is the first event\",\"start_date\":\"2023-01-23\",\"start_time\":\"01:23\",\"end_date\":\"2023-01-23\",\"end_time\":\"01:23\",\"age_limit\":\"18\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"Record not found.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT Event",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/events\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/events\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp156apkxnycafx138fy1",
+                                    "description": "The ID of the event."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"start_date\":\"2023-07-07T11:15:06\",\"end_date\":\"2023-07-07T11:15:06\"}"
+                        },
+                        "description": "Updates event record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"event_hall\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event Hall\",\"description\":\"This is the first event hall.\"},\"host\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Host\"},\"title\":\"First Event\",\"slug\":\"first-event\",\"description\":\"This is the first event\",\"start_date\":\"2023-01-23\",\"start_time\":\"01:23\",\"end_date\":\"2023-01-23\",\"end_time\":\"01:23\",\"age_limit\":\"18\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE Event",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/events\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/events\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp156apkxnycafx138fy1",
+                                    "description": "The ID of the event."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Deletes event record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Event Halls",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/event-halls",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/event-halls?page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns paginated list of event halls."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event Hall\",\"description\":\"This is the first event hall\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST Event Hall",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/event-halls",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/event-halls"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"gskbhbojpejhzpaukenv\"}"
+                        },
+                        "description": "Creates a new event hall record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event Hall\",\"description\":\"This is the first event hall\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"The name field is required.\",\"errors\":{\"name\":[\"The name field is required.\"]}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Event Hall",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/event-halls\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/event-halls\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp10z5hjx0pm45ng1gdea",
+                                    "description": "The ID of the event hall."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns a event hall record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event Hall\",\"description\":\"This is the first event hall\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"Record not found.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT Event Hall",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/event-halls\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/event-halls\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp10z5hjx0pm45ng1gdea",
+                                    "description": "The ID of the event hall."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "Updates event hall record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event Hall\",\"description\":\"This is the first event hall\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE Event Hall",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/event-halls\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/event-halls\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp10z5hjx0pm45ng1gdea",
+                                    "description": "The ID of the event hall."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Deletes event hall record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Feedbacks",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/feedbacks",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/feedbacks?page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns paginated list of feedbacks."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"added_by\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\"},\"subject\":\"Feedback Subject\",\"message\":\"This is the feedback message.\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST Feedback",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/feedbacks",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/feedbacks"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"subject\":\"vri\",\"message\":\"ppdwcmysivi\"}"
+                        },
+                        "description": "Creates a new feedback record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"added_by\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\"},\"subject\":\"Feedback Subject\",\"message\":\"This is the feedback message.\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"The subject field is required.\",\"errors\":{\"subject\":[\"The subject field is required.\"]}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Feedback",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/feedbacks\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/feedbacks\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp1hab6xx7st0hqcshx6j",
+                                    "description": "The ID of the feedback."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns a feedback record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"added_by\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\"},\"subject\":\"Feedback Subject\",\"message\":\"This is the feedback message.\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"Record not found.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE Feedback",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/feedbacks\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/feedbacks\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp1hab6xx7st0hqcshx6j",
+                                    "description": "The ID of the feedback."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Deletes feedback record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Hosts",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/hosts",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/hosts?page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns paginated list of hosts."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\",\"description\":\"John Snow is the king of pop.\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST Host",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/hosts",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/hosts"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"wsgkpllfmfpxdj\",\"description\":\"Laudantium consequatur harum est porro reiciendis quidem.\"}"
+                        },
+                        "description": "Creates a new host record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\",\"description\":\"John Snow is the king of pop.\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"The name field is required.\",\"errors\":{\"name\":[\"The name field is required.\"]}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Host",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/hosts\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/hosts\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp12ba4ss338wj4161gjq",
+                                    "description": "The ID of the host."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns a host record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\",\"description\":\"John Snow is the king of pop.\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"Record not found.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT Host",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/hosts\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/hosts\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp12ba4ss338wj4161gjq",
+                                    "description": "The ID of the host."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "Updates host record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\",\"description\":\"John Snow is the king of pop.\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE Host",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/hosts\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/hosts\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp12ba4ss338wj4161gjq",
+                                    "description": "The ID of the host."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Deletes host record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Newsletters",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/newsletters",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/newsletters?page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns paginated list of newsletters."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\",\"email\":\"john@snow.com\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST Newsletter",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/newsletters",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/newsletters"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"tkmworsgcdfejv\",\"email\":\"iterry@example.net\"}"
+                        },
+                        "description": "Creates a new newsletter record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\",\"email\":\"john@snow.com\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"The name field is required.\",\"errors\":{\"name\":[\"The name field is required.\"]}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Newsletter",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/newsletters\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/newsletters\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp1j9x2wx731hvzedf403",
+                                    "description": "The ID of the newsletter."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns a newsletter record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\",\"email\":\"john@snow.com\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"Record not found.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT Newsletter",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/newsletters\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/newsletters\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp1j9x2wx731hvzedf403",
+                                    "description": "The ID of the newsletter."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"hartmann.lou@example.com\"}"
+                        },
+                        "description": "Updates newsletter record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\",\"email\":\"john@snow.com\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE Newsletter",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/newsletters\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/newsletters\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp1j9x2wx731hvzedf403",
+                                    "description": "The ID of the newsletter."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Deletes newsletter record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Tags",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/tags",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/tags?page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns paginated list of tags."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"title\":\"Karaoke\",\"description\":\"This is the regular karaoke.\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST Tag",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/tags",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/tags"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"accusantium\",\"description\":\"nulla\"}"
+                        },
+                        "description": "Creates a new tag record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"title\":\"Karaoke\",\"description\":\"This is the regular karaoke.\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"The title field is required.\",\"errors\":{\"title\":[\"The title field is required.\"]}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Tag",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/tags\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/tags\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "deleniti",
+                                    "description": "The ID of the tag."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns a tag record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"title\":\"Karaoke\",\"description\":\"This is the regular karaoke.\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"Record not found.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT Tag",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/tags\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/tags\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "quidem",
+                                    "description": "The ID of the tag."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "Updates tag record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"title\":\"Karaoke\",\"description\":\"This is the regular karaoke.\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE Tag",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/tags\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/tags\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "voluptatem",
+                                    "description": "The ID of the tag."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Deletes tag record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Tickets",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/tickets",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/tickets?page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns paginated list of tickets."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket_number\":\"01h3hkhxrh15atksjr11hrck0d20230123\",\"event\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event\",\"description\":\"This is the first event\"},\"ticket_type\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Ticket Type\",\"description\":\"This is the first ticket type\"},\"added_by\":\"01h3hkhxrh15atksjr11hrck0d\",\"amount_paid\":12,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"USD\"},\"payment_confirmed\":0,\"payment_confirmed_by\":\"01h3hkhxrh15atksjr11hrck0d\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST Ticket",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/tickets",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/tickets"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"event_id\":\"laudantium\",\"ticket_type_id\":\"aut\",\"user_id\":\"ea\",\"amount_paid\":363056,\"currency_id\":\"nihil\",\"payment_confirmed\":false}"
+                        },
+                        "description": "Creates a new ticket record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket_number\":\"01h3hkhxrh15atksjr11hrck0d20230123\",\"event\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event\",\"description\":\"This is the first event\"},\"ticket_type\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Ticket Type\",\"description\":\"This is the first ticket type\"},\"added_by\":\"01h3hkhxrh15atksjr11hrck0d\",\"amount_paid\":12,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"USD\"},\"payment_confirmed\":0,\"payment_confirmed_by\":\"01h3hkhxrh15atksjr11hrck0d\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"The added_by field is required.\",\"errors\":{\"added_by\":[\"The added_by field is required.\"]}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Ticket",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/tickets\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/tickets\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp1cem74kxrvdgm08208g",
+                                    "description": "The ID of the ticket."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns a ticket record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket_number\":\"01h3hkhxrh15atksjr11hrck0d20230123\",\"event\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event\",\"description\":\"This is the first event\"},\"ticket_type\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Ticket Type\",\"description\":\"This is the first ticket type\"},\"added_by\":\"01h3hkhxrh15atksjr11hrck0d\",\"amount_paid\":12,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"USD\"},\"payment_confirmed\":0,\"payment_confirmed_by\":\"01h3hkhxrh15atksjr11hrck0d\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"Record not found.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT Ticket",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/tickets\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/tickets\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp1cem74kxrvdgm08208g",
+                                    "description": "The ID of the ticket."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"payment_confirmed\":true}"
+                        },
+                        "description": "Updates ticket record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket_number\":\"01h3hkhxrh15atksjr11hrck0d20230123\",\"event\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event\",\"description\":\"This is the first event\"},\"ticket_type\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Ticket Type\",\"description\":\"This is the first ticket type\"},\"added_by\":\"01h3hkhxrh15atksjr11hrck0d\",\"amount_paid\":12,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"USD\"},\"payment_confirmed\":0,\"payment_confirmed_by\":\"01h3hkhxrh15atksjr11hrck0d\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE Ticket",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/tickets\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/tickets\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp1cem74kxrvdgm08208g",
+                                    "description": "The ID of the ticket."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Deletes ticket record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Ticket Types",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/ticket-types",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/ticket-types?page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns paginated list of ticket types."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"event\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event\",\"description\":\"This is the first event\"},\"title\":\"First event\",\"slug\":\"first-event-sample\",\"description\":\"This is the first event\",\"available_tickets\":200,\"price\":200,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"USD\"}, ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST Ticket Type",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/ticket-types",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/ticket-types"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"event_id\":\"non\",\"title\":\"oxjerhrutgac\",\"description\":\"Veritatis voluptatem maiores ducimus earum tempore.\",\"available_tickets\":1709.5553,\"price\":\"voluptatem\",\"currency_id\":\"illum\"}"
+                        },
+                        "description": "Creates a new ticket type record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"event\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event\",\"description\":\"This is the first event\"},\"title\":\"First event\",\"slug\":\"first-event-sample\",\"description\":\"This is the first event\",\"available_tickets\":200,\"price\":200,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"USD\"}, ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"The title field is required.\",\"errors\":{\"title\":[\"The title field is required.\"]}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Ticket Type",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/ticket-types\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/ticket-types\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp18hfrez47mhs1pjp6xe",
+                                    "description": "The ID of the ticket type."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns a ticket type record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"event\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event\",\"description\":\"This is the first event\"},\"title\":\"First event\",\"slug\":\"first-event-sample\",\"description\":\"This is the first event\",\"available_tickets\":200,\"price\":200,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"USD\"}, ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"Record not found.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT Ticket type",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/ticket-types\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/ticket-types\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp18hfrez47mhs1pjp6xe",
+                                    "description": "The ID of the ticket type."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "Updates ticket type record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"event\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event\",\"description\":\"This is the first event\"},\"title\":\"First event\",\"slug\":\"first-event-sample\",\"description\":\"This is the first event\",\"available_tickets\":200,\"price\":200,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"USD\"}, ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE Ticket Type",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/ticket-types\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/ticket-types\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp18hfrez47mhs1pjp6xe",
+                                    "description": "The ID of the ticket type."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Deletes ticket type record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Ticket Verifications",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/ticket-verifications",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/ticket-verifications?page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns paginated list of ticket verifications."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket_number\":\"01h3hkhxrh15SAMPLE\",\"amount_paid\":12,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"title\":\"USD\"}},\"user\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\",\"username\":\"user1\"},\"payment_confirmed\":0, ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST Ticket Verification",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/ticket-verifications",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/ticket-verifications"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"ticket_id\":\"numquam\",\"user_id\":\"nulla\",\"payment_confirmed\":\"vel\"}"
+                        },
+                        "description": "Creates a new ticket verification record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket_number\":\"01h3hkhxrh15SAMPLE\",\"amount_paid\":12,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"title\":\"USD\"}},\"user\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\",\"username\":\"user1\"},\"payment_confirmed\":0, ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Ticket Verification",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/ticket-verifications\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/ticket-verifications\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp1ft3ms6a8vx8z71wqe1",
+                                    "description": "The ID of the ticket verification."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns a ticket verification record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket_number\":\"01h3hkhxrh15SAMPLE\",\"amount_paid\":12,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"title\":\"USD\"}},\"user\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\",\"username\":\"user1\"},\"payment_confirmed\":0, ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"Record not found.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT Ticket Verification",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/ticket-verifications\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/ticket-verifications\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp1ft3ms6a8vx8z71wqe1",
+                                    "description": "The ID of the ticket verification."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "Updates ticket verification record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket_number\":\"01h3hkhxrh15SAMPLE\",\"amount_paid\":12,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"title\":\"USD\"}},\"user\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\",\"username\":\"user1\"},\"payment_confirmed\":0, ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE Ticket Verification",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/ticket-verifications\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/ticket-verifications\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp1ft3ms6a8vx8z71wqe1",
+                                    "description": "The ID of the ticket verification."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Deletes ticket verification record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Users",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/users",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/users?page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns paginated list of users."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"role_id\":\"01h3hkhxrh15atksjr11hrck0d\",\"username\":\"user1\",\"name\":\"John Snow\",\"email\":\"john@snow.com\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST User",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/users"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Creates a new user record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"role_id\":\"01h3hkhxrh15atksjr11hrck0d\",\"username\":\"user1\",\"name\":\"John Snow\",\"email\":\"john@snow.com\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"The name field is required.\",\"errors\":{\"name\":[\"The name field is required.\"]}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET User",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp0q7x270z9z8amap0fbq",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns a user record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"role_id\":\"01h3hkhxrh15atksjr11hrck0d\",\"username\":\"user1\",\"name\":\"John Snow\",\"email\":\"john@snow.com\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"Record not found.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT User",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp0q7x270z9z8amap0fbq",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Updates user record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"role_id\":\"01h3hkhxrh15atksjr11hrck0d\",\"username\":\"user1\",\"name\":\"John Snow\",\"email\":\"john@snow.com\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE User",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/super-admin\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/super-admin\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp0q7x270z9z8amap0fbq",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Deletes user record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Events",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/events",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/events?page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns paginated list of events."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"event_hall\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event Hall\",\"description\":\"This is the first event hall.\"},\"host\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Host\"},\"title\":\"First Event\",\"slug\":\"first-event\",\"description\":\"This is the first event\",\"start_date\":\"2023-01-23\",\"start_time\":\"01:23\",\"end_date\":\"2023-01-23\",\"end_time\":\"01:23\",\"age_limit\":\"18\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Event",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/events\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/events\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp156apkxnycafx138fy1",
+                                    "description": "The ID of the event."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns a event record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"event_hall\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event Hall\",\"description\":\"This is the first event hall.\"},\"host\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Host\"},\"title\":\"First Event\",\"slug\":\"first-event\",\"description\":\"This is the first event\",\"start_date\":\"2023-01-23\",\"start_time\":\"01:23\",\"end_date\":\"2023-01-23\",\"end_time\":\"01:23\",\"age_limit\":\"18\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"Record not found.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT Event",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/events\/:event_slug\/tickets",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/events\/:event_slug\/tickets",
+                            "variable": [
+                                {
+                                    "id": "event_slug",
+                                    "key": "event_slug",
+                                    "value": "01h3rdp156apkxnycafx138fy1",
+                                    "description": "The slug of the event."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Updates event record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"event_hall\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event Hall\",\"description\":\"This is the first event hall.\"},\"host\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Host\"},\"title\":\"First Event\",\"slug\":\"first-event\",\"description\":\"This is the first event\",\"start_date\":\"2023-01-23\",\"start_time\":\"01:23\",\"end_date\":\"2023-01-23\",\"end_time\":\"01:23\",\"age_limit\":\"18\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Tickets",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/tickets",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/tickets?page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns paginated list of tickets."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket_number\":\"01h3hkhxrh15atksjr11hrck0d20230123\",\"event\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event\",\"description\":\"This is the first event\"},\"ticket_type\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Ticket Type\",\"description\":\"This is the first ticket type\"},\"added_by\":\"01h3hkhxrh15atksjr11hrck0d\",\"amount_paid\":12,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"USD\"},\"payment_confirmed\":0,\"payment_confirmed_by\":\"01h3hkhxrh15atksjr11hrck0d\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST Ticket",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/tickets",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/tickets"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"event_id\":\"corrupti\",\"ticket_type_id\":\"quasi\",\"user_id\":\"voluptate\",\"amount_paid\":23435.88270549,\"currency_id\":\"animi\",\"payment_confirmed\":false}"
+                        },
+                        "description": "Creates a new ticket record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket_number\":\"01h3hkhxrh15atksjr11hrck0d20230123\",\"event\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event\",\"description\":\"This is the first event\"},\"ticket_type\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Ticket Type\",\"description\":\"This is the first ticket type\"},\"added_by\":\"01h3hkhxrh15atksjr11hrck0d\",\"amount_paid\":12,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"USD\"},\"payment_confirmed\":0,\"payment_confirmed_by\":\"01h3hkhxrh15atksjr11hrck0d\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"The added_by field is required.\",\"errors\":{\"added_by\":[\"The added_by field is required.\"]}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Ticket",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/tickets\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/tickets\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp1cem74kxrvdgm08208g",
+                                    "description": "The ID of the ticket."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns a ticket record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket_number\":\"01h3hkhxrh15atksjr11hrck0d20230123\",\"event\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event\",\"description\":\"This is the first event\"},\"ticket_type\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Ticket Type\",\"description\":\"This is the first ticket type\"},\"added_by\":\"01h3hkhxrh15atksjr11hrck0d\",\"amount_paid\":12,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"USD\"},\"payment_confirmed\":0,\"payment_confirmed_by\":\"01h3hkhxrh15atksjr11hrck0d\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"Record not found.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Ticket Verifications",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/ticket-verifications",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/ticket-verifications?page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns paginated list of ticket verifications."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket_number\":\"01h3hkhxrh15SAMPLE\",\"amount_paid\":12,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"title\":\"USD\"}},\"user\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\",\"username\":\"user1\"},\"payment_confirmed\":0, ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST Ticket Verification",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/ticket-verifications",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/ticket-verifications"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"ticket_id\":\"incidunt\",\"user_id\":\"qui\",\"payment_confirmed\":\"animi\"}"
+                        },
+                        "description": "Creates a new ticket verification record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket_number\":\"01h3hkhxrh15SAMPLE\",\"amount_paid\":12,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"title\":\"USD\"}},\"user\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\",\"username\":\"user1\"},\"payment_confirmed\":0, ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Ticket Verification",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/ticket-verifications\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/ticket-verifications\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp1ft3ms6a8vx8z71wqe1",
+                                    "description": "The ID of the ticket verification."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns a ticket verification record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket_number\":\"01h3hkhxrh15SAMPLE\",\"amount_paid\":12,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"title\":\"USD\"}},\"user\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\",\"username\":\"user1\"},\"payment_confirmed\":0, ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"Record not found.\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Auth endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "POST Register",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"username\":\"vfx\",\"name\":\"zymkpdar\",\"email\":\"nitzsche.kale@example.com\",\"password\":\"et\"}"
+                        },
+                        "description": "Register with an existing user.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"access_token\":\"1|HvglYzIrLURVGx6Xe41HKj1CrNsxRxe4pLA2oISo\",\"name\":\"John Snow\",\"role\":4}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"error\": \"The provided credentials are incorrect.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST Login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"username\":\"4p2wtl6\",\"password\":\"velit\"}"
+                        },
+                        "description": "Login with an existing user.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"access_token\":\"1|HvglYzIrLURVGx6Xe41HKj1CrNsxRxe4pLA2oISo\",\"name\":\"John Snow\",\"role\":4}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"error\": \"The provided credentials are incorrect.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT Reset Password",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/password-reset",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/password-reset"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"current_password\":\"voluptatibus\",\"password\":\"consequuntur\"}"
+                        },
+                        "description": "Reset Password of an existing user."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"success\":\"Your password has been updated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST Logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Logout authenticated user."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Public endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET Events",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/events",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/events?page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns paginated list of events.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"event_hall\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event Hall\",\"description\":\"This is the first event hall.\"},\"host\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Host\"},\"title\":\"First Event\",\"slug\":\"first-event\",\"description\":\"This is the first event\",\"start_date\":\"2023-01-23\",\"start_time\":\"01:23\",\"end_date\":\"2023-01-23\",\"end_time\":\"01:23\",\"age_limit\":\"18\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Event",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/events\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/events\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp156apkxnycafx138fy1",
+                                    "description": "The ID of the event."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns a event record.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"event_hall\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event Hall\",\"description\":\"This is the first event hall.\"},\"host\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Host\"},\"title\":\"First Event\",\"slug\":\"first-event\",\"description\":\"This is the first event\",\"start_date\":\"2023-01-23\",\"start_time\":\"01:23\",\"end_date\":\"2023-01-23\",\"end_time\":\"01:23\",\"age_limit\":\"18\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"Record not found.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Ticket by Event",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/events\/:event_slug\/tickets",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/events\/:event_slug\/tickets",
+                            "variable": [
+                                {
+                                    "id": "event_slug",
+                                    "key": "event_slug",
+                                    "value": "01h3rdp156apkxnycafx138fy1",
+                                    "description": "The slug of the event."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Retrieves tickets by event record.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket_number\":\"01h3hkhxrh15atksjr11hrck0d20230123\",\"event\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event\",\"description\":\"This is the first event\"},\"ticket_type\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Ticket Type\",\"description\":\"This is the first ticket type\"},\"added_by\":\"01h3hkhxrh15atksjr11hrck0d\",\"amount_paid\":12,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"USD\"},\"payment_confirmed\":0,\"payment_confirmed_by\":\"01h3hkhxrh15atksjr11hrck0d\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST Feedback",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/feedbacks",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/feedbacks"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"subject\":\"zdltxtxhhrbqyv\",\"message\":\"wbpvsbgftbxaddrnid\"}"
+                        },
+                        "description": "Creates a new feedback record.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"added_by\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\"},\"subject\":\"Feedback Subject\",\"message\":\"This is the feedback message.\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"The subject field is required.\",\"errors\":{\"subject\":[\"The subject field is required.\"]}, ...}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "User endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET Events",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user\/events",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/user\/events?page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns paginated list of events."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"event_hall\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event Hall\",\"description\":\"This is the first event hall.\"},\"host\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Host\"},\"title\":\"First Event\",\"slug\":\"first-event\",\"description\":\"This is the first event\",\"start_date\":\"2023-01-23\",\"start_time\":\"01:23\",\"end_date\":\"2023-01-23\",\"end_time\":\"01:23\",\"age_limit\":\"18\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Event",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user\/events\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/user\/events\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp156apkxnycafx138fy1",
+                                    "description": "The ID of the event."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns a event record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"event_hall\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event Hall\",\"description\":\"This is the first event hall.\"},\"host\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Host\"},\"title\":\"First Event\",\"slug\":\"first-event\",\"description\":\"This is the first event\",\"start_date\":\"2023-01-23\",\"start_time\":\"01:23\",\"end_date\":\"2023-01-23\",\"end_time\":\"01:23\",\"age_limit\":\"18\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"Record not found.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Tickets by Event",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user\/events\/:event_slug\/tickets",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/user\/events\/:event_slug\/tickets",
+                            "variable": [
+                                {
+                                    "id": "event_slug",
+                                    "key": "event_slug",
+                                    "value": "01h3rdp156apkxnycafx138fy1",
+                                    "description": "The slug of the event."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Retrieves tickets by event record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket_number\":\"01h3hkhxrh15atksjr11hrck0d20230123\",\"event\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event\",\"description\":\"This is the first event\"},\"ticket_type\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Ticket Type\",\"description\":\"This is the first ticket type\"},\"added_by\":\"01h3hkhxrh15atksjr11hrck0d\",\"amount_paid\":12,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"USD\"},\"payment_confirmed\":0,\"payment_confirmed_by\":\"01h3hkhxrh15atksjr11hrck0d\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Tickets",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user\/tickets",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/user\/tickets?page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns paginated list of tickets."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket_number\":\"01h3hkhxrh15atksjr11hrck0d20230123\",\"event\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event\",\"description\":\"This is the first event\"},\"ticket_type\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Ticket Type\",\"description\":\"This is the first ticket type\"},\"added_by\":\"01h3hkhxrh15atksjr11hrck0d\",\"amount_paid\":12,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"USD\"},\"payment_confirmed\":0,\"payment_confirmed_by\":\"01h3hkhxrh15atksjr11hrck0d\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST Ticket",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user\/tickets",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/user\/tickets"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"event_id\":\"a\",\"ticket_type_id\":\"quam\",\"user_id\":\"ducimus\",\"amount_paid\":27.3887,\"currency_id\":\"excepturi\",\"payment_confirmed\":true}"
+                        },
+                        "description": "Creates a new ticket record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket_number\":\"01h3hkhxrh15atksjr11hrck0d20230123\",\"event\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event\",\"description\":\"This is the first event\"},\"ticket_type\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Ticket Type\",\"description\":\"This is the first ticket type\"},\"added_by\":\"01h3hkhxrh15atksjr11hrck0d\",\"amount_paid\":12,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"USD\"},\"payment_confirmed\":0,\"payment_confirmed_by\":\"01h3hkhxrh15atksjr11hrck0d\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"The added_by field is required.\",\"errors\":{\"added_by\":[\"The added_by field is required.\"]}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Ticket",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user\/tickets\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/user\/tickets\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp1cem74kxrvdgm08208g",
+                                    "description": "The ID of the ticket."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns a ticket record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"ticket_number\":\"01h3hkhxrh15atksjr11hrck0d20230123\",\"event\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Event\",\"description\":\"This is the first event\"},\"ticket_type\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"First Ticket Type\",\"description\":\"This is the first ticket type\"},\"added_by\":\"01h3hkhxrh15atksjr11hrck0d\",\"amount_paid\":12,\"currency\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"USD\"},\"payment_confirmed\":0,\"payment_confirmed_by\":\"01h3hkhxrh15atksjr11hrck0d\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"Record not found.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE Ticket",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user\/tickets\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/user\/tickets\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp1cem74kxrvdgm08208g",
+                                    "description": "The ID of the ticket."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Deletes ticket record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Feedbacks",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user\/feedbacks",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/user\/feedbacks?page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns paginated list of feedbacks."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"added_by\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\"},\"subject\":\"Feedback Subject\",\"message\":\"This is the feedback message.\", ...}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST Feedback",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user\/feedbacks",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/user\/feedbacks"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"subject\":\"ifhtgbduxgmaurkdbdbnwiyxd\",\"message\":\"cfxzv\"}"
+                        },
+                        "description": "Creates a new feedback record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"added_by\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\"},\"subject\":\"Feedback Subject\",\"message\":\"This is the feedback message.\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"The subject field is required.\",\"errors\":{\"subject\":[\"The subject field is required.\"]}, ...}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET Feedback",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user\/feedbacks\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/user\/feedbacks\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp1hab6xx7st0hqcshx6j",
+                                    "description": "The ID of the feedback."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns a feedback record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"added_by\":{\"id\":\"01h3hkhxrh15atksjr11hrck0d\",\"name\":\"John Snow\"},\"subject\":\"Feedback Subject\",\"message\":\"This is the feedback message.\", ...}, ...}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"Record not found.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE Feedback",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user\/feedbacks\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/user\/feedbacks\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "01h3rdp1hab6xx7st0hqcshx6j",
+                                    "description": "The ID of the feedback."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Deletes feedback record."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

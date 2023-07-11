@@ -2,13 +2,13 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
+// use Illuminate\Foundation\Testing\WithFaker;
 use App\Models\Role;
-use App\Models\User;
 use App\Models\Ticket;
 use App\Models\TicketVerification;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class TicketVerificationTest extends TestCase
 {
@@ -160,7 +160,7 @@ class TicketVerificationTest extends TestCase
 
         $this->assertDatabaseHas('ticket_verifications', [
             'id' => $ticketVerification->id,
-            'deleted_at' => $ticketVerification->updated_at       // consider ignoring this line as the 'deleted_at' may differ from the 'updated_at' field by 1 second, thereby causing the test to fail; but will pass if ran again immediately after a failure.
+            'deleted_at' => $ticketVerification->updated_at,       // consider ignoring this line as the 'deleted_at' may differ from the 'updated_at' field by 1 second, thereby causing the test to fail; but will pass if ran again immediately after a failure.
         ])->assertDatabaseCount('ticket_verifications', 13);
 
         $response2->assertStatus(403);
